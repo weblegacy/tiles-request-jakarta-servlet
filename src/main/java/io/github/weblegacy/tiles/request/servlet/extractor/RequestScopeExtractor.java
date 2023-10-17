@@ -48,21 +48,43 @@ public class RequestScopeExtractor implements AttributeExtractor {
         this.request = request;
     }
 
+    /**
+     * Sets a value for the given key.
+     *
+     * @param key The key of the attribute.
+     * @param value The value of the attribute.
+     */
     @Override
     public void setValue(String name, Object value) {
         request.setAttribute(name, value);
     }
 
+    /**
+     * Removes an attribute.
+     *
+     * @param name The key of the attribute to remove.
+     */
     @Override
     public void removeValue(String name) {
         request.removeAttribute(name);
     }
 
+    /**
+     * The enumeration of the keys in the stored attributes.
+     *
+     * @return The keys.
+     */
     @Override
     public Enumeration<String> getKeys() {
         return request.getAttributeNames();
     }
 
+    /**
+     * Returns the value of the attribute with the given key.
+     *
+     * @param key The key of the attribute.
+     * @return The value.
+     */
     @Override
     public Object getValue(String key) {
         return request.getAttribute(key);

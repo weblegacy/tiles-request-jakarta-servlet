@@ -39,7 +39,8 @@ import jakarta.servlet.ServletContext;
 
 /**
  * Servlet-based implementation of the TilesApplicationContext interface.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 
+ * and adapted for Jakarta EE 9 </p>
  *
  * @version $Rev$ $Date$
  */
@@ -80,7 +81,8 @@ public class ServletApplicationContext implements ApplicationContext {
     public Map<String, Object> getApplicationScope() {
 
         if ((applicationScope == null) && (servletContext != null)) {
-            applicationScope = new ScopeMap(new ApplicationScopeExtractor(servletContext));
+            applicationScope = new ScopeMap(
+            		new ApplicationScopeExtractor(servletContext));
         }
         return (applicationScope);
 
@@ -90,7 +92,8 @@ public class ServletApplicationContext implements ApplicationContext {
     public Map<String, String> getInitParams() {
 
         if ((initParam == null) && (servletContext != null)) {
-            initParam = new ReadOnlyEnumerationMap<String>(new InitParameterExtractor(servletContext));
+            initParam = new ReadOnlyEnumerationMap<String>(
+            		new InitParameterExtractor(servletContext));
         }
         return (initParam);
 

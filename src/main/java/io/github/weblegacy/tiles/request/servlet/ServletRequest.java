@@ -48,7 +48,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet-based implementation of the TilesApplicationContext interface.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
+ * <p>Copied from Apache tiles-request-servlet 1.0.7
+ * and adapted for Jakarta EE 9 </p>
  *
  * @version $Rev$ $Date$
  */
@@ -58,7 +59,8 @@ public class ServletRequest extends AbstractClientRequest {
      * The native available scopes: request, session and application.
      */
     private static final List<String> SCOPES
-            = Collections.unmodifiableList(Arrays.asList(REQUEST_SCOPE, "session", APPLICATION_SCOPE));
+            = Collections.unmodifiableList(Arrays.asList(
+            		REQUEST_SCOPE, "session", APPLICATION_SCOPE));
 
     /**
      * The request object to use.
@@ -139,7 +141,8 @@ public class ServletRequest extends AbstractClientRequest {
     public Map<String, String> getHeader() {
 
         if ((header == null) && (request != null)) {
-            header = new ReadOnlyEnumerationMap<String>(new HeaderExtractor(request, null));
+            header = new ReadOnlyEnumerationMap<String>(
+            		new HeaderExtractor(request, null));
         }
         return (header);
 
@@ -159,7 +162,8 @@ public class ServletRequest extends AbstractClientRequest {
     public Map<String, String[]> getHeaderValues() {
 
         if ((headerValues == null) && (request != null)) {
-            headerValues = new HeaderValuesMap(new HeaderExtractor(request, response));
+            headerValues = new HeaderValuesMap(
+            		new HeaderExtractor(request, response));
         }
         return (headerValues);
 
@@ -170,7 +174,8 @@ public class ServletRequest extends AbstractClientRequest {
     public Map<String, String> getParam() {
 
         if ((param == null) && (request != null)) {
-            param = new ReadOnlyEnumerationMap<String>(new ParameterExtractor(request));
+            param = new ReadOnlyEnumerationMap<String>(
+            		new ParameterExtractor(request));
         }
         return (param);
 
@@ -191,7 +196,8 @@ public class ServletRequest extends AbstractClientRequest {
         }else if(APPLICATION_SCOPE.equals(scope)){
             return getApplicationScope();
         }
-        throw new IllegalArgumentException(scope + " does not exist. Call getAvailableScopes() first to check.");
+        throw new IllegalArgumentException(scope + " does not exist. "
+        		+ "Call getAvailableScopes() first to check.");
     }
 
     /** {@inheritDoc} */
@@ -242,8 +248,8 @@ public class ServletRequest extends AbstractClientRequest {
         try {
             rd.include(request, response);
         } catch (ServletException ex) {
-            throw ServletUtil.wrapServletException(ex, "ServletException including path '"
-                    + path + "'.");
+            throw ServletUtil.wrapServletException(
+            		ex, "ServletException including path '" + path + "'.");
         }
     }
 
@@ -264,8 +270,8 @@ public class ServletRequest extends AbstractClientRequest {
         try {
             rd.forward(request, response);
         } catch (ServletException ex) {
-            throw ServletUtil.wrapServletException(ex, "ServletException including path '"
-                    + path + "'.");
+            throw ServletUtil.wrapServletException(
+            		ex, "ServletException including path '" + path + "'.");
         }
     }
 

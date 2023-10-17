@@ -34,7 +34,8 @@ import jakarta.servlet.ServletException;
 
 /**
  * Utilities for Tiles request servlet support.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
+ * <p>Copied from Apache tiles-request-servlet 1.0.7
+ * and adapted for Jakarta EE 9 </p>
  *
  * @version $Rev$ $Date$
  */
@@ -47,7 +48,8 @@ public final class ServletUtil {
     }
 
     /**
-     * Wraps a ServletException to create an IOException with the root cause if present.
+     * Wraps a ServletException to create an IOException
+     * with the root cause if present.
      *
      * @param ex The exception to wrap.
      * @param message The message of the exception.
@@ -69,14 +71,16 @@ public final class ServletUtil {
     }
 
     /**
-     * Returns the application context getting it from the servlet context. It must be
-     * first saved creating a {@link ServletApplicationContext} and using
+     * Returns the application context getting it from the servlet context.
+     * It must be first saved creating a
+     * {@link ServletApplicationContext} and using
      * {@link ApplicationAccess#register(ApplicationContext)}.
      *
      * @param servletContext The servlet context.
      * @return The application context, if found, <code>null</code> otherwise.
      */
-    public static ApplicationContext getApplicationContext(ServletContext servletContext) {
+    public static ApplicationContext getApplicationContext(
+    		ServletContext servletContext) {
         return (ApplicationContext) servletContext
                 .getAttribute(ApplicationAccess.APPLICATION_CONTEXT_ATTRIBUTE);
     }
@@ -93,16 +97,19 @@ public final class ServletUtil {
         Request currentRequest = request;
         while (true) {
             if (currentRequest == null) {
-                throw new NotAServletEnvironmentException("Last Tiles request context is null");
+                throw new NotAServletEnvironmentException(
+                		"Last Tiles request context is null");
             }
 
             if (currentRequest instanceof ServletRequest) {
                 return (ServletRequest) currentRequest;
             }
             if (!(currentRequest instanceof RequestWrapper)) {
-                throw new NotAServletEnvironmentException("Not a Servlet environment, not supported");
+                throw new NotAServletEnvironmentException(
+                		"Not a Servlet environment, not supported");
             }
-            currentRequest = ((RequestWrapper) currentRequest).getWrappedRequest();
+            currentRequest = ((RequestWrapper)
+            		currentRequest).getWrappedRequest();
         }
     }
 
@@ -114,11 +121,14 @@ public final class ServletUtil {
      * @throws NotAServletEnvironmentException If the application context is not
      * servlet-based.
      */
-    public static ServletContext getServletContext(ApplicationContext applicationContext) {
+    public static ServletContext getServletContext(
+    		ApplicationContext applicationContext) {
         if (applicationContext instanceof ServletApplicationContext) {
-            return (ServletContext) ((ServletApplicationContext) applicationContext).getContext();
+            return (ServletContext) ((ServletApplicationContext)
+            		applicationContext).getContext();
         }
 
-        throw new NotAServletEnvironmentException("Not a Servlet-based environment");
+        throw new NotAServletEnvironmentException(
+        		"Not a Servlet-based environment");
     }
 }

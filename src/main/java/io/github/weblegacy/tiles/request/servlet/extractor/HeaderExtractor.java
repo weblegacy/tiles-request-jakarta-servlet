@@ -29,7 +29,8 @@ import org.apache.tiles.request.attribute.EnumeratedValuesExtractor;
 
 /**
  * Extract header values from an HTTP request.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
+ * <p>Copied from Apache tiles-request-servlet 1.0.7
+ * and adapted for Jakarta EE 9 </p>
  *
  * @version $Rev$ $Date$
  */
@@ -57,22 +58,45 @@ public class HeaderExtractor implements EnumeratedValuesExtractor {
         this.response = response;
     }
 
+    /**
+     * The enumeration of the keys in the stored attributes.
+     *
+     * @return The keys.
+     */
     @Override
     public Enumeration<String> getKeys() {
         return request.getHeaderNames();
    }
 
+    /**
+     * Returns the value of the attribute with the given key.
+     *
+     * @param key The key of the attribute.
+     * @return The value.
+     */
     @Override
     public String getValue(String key) {
         return request.getHeader(key);
     }
 
+    /**
+     * Returns the values stored at the given key.
+     *
+     * @param key The key of the attribute.
+     * @return The values of the attribute.
+     */
     @SuppressWarnings("unchecked")
     @Override
     public Enumeration<String> getValues(String key) {
         return request.getHeaders(key);
     }
 
+    /**
+     * Sets a value for the given key.
+     *
+     * @param key The key of the attribute.
+     * @param value The value of the attribute.
+     */
     @Override
     public void setValue(String key, String value) {
         response.setHeader(key, value);

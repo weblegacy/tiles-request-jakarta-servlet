@@ -30,7 +30,8 @@ import org.apache.tiles.request.attribute.AttributeExtractor;
 
 /**
  * Extract attributes from session scope.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 
+ * and adapted for Jakarta EE 9 </p>
  *
  * @version $Rev$ $Date$
  */
@@ -50,11 +51,22 @@ public class SessionScopeExtractor implements AttributeExtractor {
         this.request = request;
     }
 
+    /**
+     * Sets a value for the given key.
+     *
+     * @param key The key of the attribute.
+     * @param value The value of the attribute.
+     */
     @Override
     public void setValue(String name, Object value) {
         request.getSession().setAttribute(name, value);
     }
 
+    /**
+     * Removes an attribute.
+     *
+     * @param name The key of the attribute to remove.
+     */
     @Override
     public void removeValue(String name) {
         HttpSession session = request.getSession(false);
@@ -63,6 +75,11 @@ public class SessionScopeExtractor implements AttributeExtractor {
         }
     }
 
+    /**
+     * The enumeration of the keys in the stored attributes.
+     *
+     * @return The keys.
+     */
     @Override
     public Enumeration<String> getKeys() {
         HttpSession session = request.getSession(false);
@@ -72,6 +89,12 @@ public class SessionScopeExtractor implements AttributeExtractor {
         return Collections.enumeration(Collections.<String>emptySet());
     }
 
+    /**
+     * Returns the value of the attribute with the given key.
+     *
+     * @param key The key of the attribute.
+     * @return The value.
+     */
     @Override
     public Object getValue(String key) {
         HttpSession session = request.getSession(false);
