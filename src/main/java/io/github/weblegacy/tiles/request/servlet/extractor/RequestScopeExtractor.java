@@ -51,7 +51,7 @@ public class RequestScopeExtractor implements AttributeExtractor {
     /**
      * Sets a value for the given key.
      *
-     * @param key The key of the attribute.
+     * @param name The key of the attribute.
      * @param value The value of the attribute.
      */
     @Override
