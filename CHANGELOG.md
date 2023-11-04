@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* delete `bin`-directory
 * Change `.gitignore`
 * Add `README.md`
 * Add `CHANGELOG.md`
