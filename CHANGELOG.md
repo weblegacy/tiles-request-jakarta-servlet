@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `spotbugs-maven-plugin` from 4.7.3.4 to 4.7.3.6
 * Bump `maven-surefire-plugin` 3.0.0 and `maven-surefire-report-plugin` 3.1.2 to 3.2.1
 * Bump `maven-project-info-reports-plugin` from 3.4.3 to 3.4.5
 * Bump `maven-pmd-plugin` from 3.20.0 to 3.21.2
