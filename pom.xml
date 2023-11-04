@@ -16,11 +16,57 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.github.weblegacy</groupId>
-  <artifactId>tiles-request-servlet</artifactId>
-  <version>1.1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.weblegacy</groupId>
+    <artifactId>tiles-request-servlet</artifactId>
+    <version>1.1.0-SNAPSHOT</version>
+
+    <name>Tiles request - Jakarta-Servlet support</name>
+    <description>Tiles request implementation for Jakarta-Servlet technology.</description>
+
+    <inceptionYear>2023</inceptionYear>
+
+    <organization>
+        <name>Web-Legacy</name>
+        <url>https://github.com/weblegacy</url>
+    </organization>
+
+    <scm>
+        <connection>scm:git:https://github.com/weblegacy/tiles-request-jakarta-servlet.git</connection>
+        <developerConnection>scm:git:git@github.com:weblegacy/tiles-request-jakarta-servlet.git</developerConnection>
+        <url>https://github.com/weblegacy/tiles-request-jakarta-servlet</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>ste-gr</id>
+            <name>Stefan Graff</name>
+            <email>stefan.graff@gmx.at</email>
+            <url>https://github.com/ste-gr</url>
+            <organization>Web-Legacy</organization>
+            <organizationUrl>https://github.com/weblegacy</organizationUrl>
+        </developer>
+        <developer>
+            <id>lukamalovic</id>
+            <name>Luka Malovic</name>
+            <url>https://github.com/lukamalovic</url>
+            <organization>Web-Legacy</organization>
+            <organizationUrl>https://github.com/weblegacy</organizationUrl>
+        </developer>
+        <developer>
+            <id>jo-kl</id>
+            <url>https://github.com/jo-kl</url>
+            <organization>Web-Legacy</organization>
+            <organizationUrl>https://github.com/weblegacy</organizationUrl>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/weblegacy/tiles-request-jakarta-servlet/issues/</url>
+    </issueManagement>
 
     <properties>
         <jpms.moduleName>${groupId}.tiles.request.servlet</jpms.moduleName>
@@ -395,4 +441,19 @@
         </plugins>
     </reporting>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <site>
+            <id>github</id>
+            <url>scm:git:git@github.com:weblegacy/tiles-request-jakarta-servlet.git</url>
+        </site>
+        <downloadUrl>https://github.com/weblegacy/tiles-request-jakarta-servlet/releases</downloadUrl>
+    </distributionManagement>
 </project>
