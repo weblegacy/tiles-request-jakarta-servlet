@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Replace Copyrights in sources to current Apache-2.0-version
 * Add `NotAServletEnvironmentException` to replace dependency `tiles-request-servlet` with `tiles-request-api`
 * Replace tabs with spaces and make right-trim
 * Rename packages from `io.github.weblegacy.tiles.request.servlet` to `org.apache.tiles.request.jakarta.servlet`
