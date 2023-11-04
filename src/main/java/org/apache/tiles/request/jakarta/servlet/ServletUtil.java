@@ -80,7 +80,7 @@ public final class ServletUtil {
      * @return The application context, if found, <code>null</code> otherwise.
      */
     public static ApplicationContext getApplicationContext(
-    		ServletContext servletContext) {
+            ServletContext servletContext) {
         return (ApplicationContext) servletContext
                 .getAttribute(ApplicationAccess.APPLICATION_CONTEXT_ATTRIBUTE);
     }
@@ -98,7 +98,7 @@ public final class ServletUtil {
         while (true) {
             if (currentRequest == null) {
                 throw new NotAServletEnvironmentException(
-                		"Last Tiles request context is null");
+                        "Last Tiles request context is null");
             }
 
             if (currentRequest instanceof ServletRequest) {
@@ -106,10 +106,10 @@ public final class ServletUtil {
             }
             if (!(currentRequest instanceof RequestWrapper)) {
                 throw new NotAServletEnvironmentException(
-                		"Not a Servlet environment, not supported");
+                        "Not a Servlet environment, not supported");
             }
             currentRequest = ((RequestWrapper)
-            		currentRequest).getWrappedRequest();
+                    currentRequest).getWrappedRequest();
         }
     }
 
@@ -122,13 +122,13 @@ public final class ServletUtil {
      * servlet-based.
      */
     public static ServletContext getServletContext(
-    		ApplicationContext applicationContext) {
+            ApplicationContext applicationContext) {
         if (applicationContext instanceof ServletApplicationContext) {
             return (ServletContext) ((ServletApplicationContext)
-            		applicationContext).getContext();
+                    applicationContext).getContext();
         }
 
         throw new NotAServletEnvironmentException(
-        		"Not a Servlet-based environment");
+                "Not a Servlet-based environment");
     }
 }

@@ -30,7 +30,7 @@ import org.apache.tiles.request.attribute.AttributeExtractor;
 
 /**
  * Extract attributes from session scope.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 
+ * <p>Copied from Apache tiles-request-servlet 1.0.7
  * and adapted for Jakarta EE 9 </p>
  *
  * @version $Rev$ $Date$

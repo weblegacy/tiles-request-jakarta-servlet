@@ -60,7 +60,7 @@ public class ServletRequest extends AbstractClientRequest {
      */
     private static final List<String> SCOPES
             = Collections.unmodifiableList(Arrays.asList(
-            		REQUEST_SCOPE, "session", APPLICATION_SCOPE));
+                    REQUEST_SCOPE, "session", APPLICATION_SCOPE));
 
     /**
      * The request object to use.
@@ -142,7 +142,7 @@ public class ServletRequest extends AbstractClientRequest {
 
         if ((header == null) && (request != null)) {
             header = new ReadOnlyEnumerationMap<String>(
-            		new HeaderExtractor(request, null));
+                    new HeaderExtractor(request, null));
         }
         return (header);
 
@@ -163,7 +163,7 @@ public class ServletRequest extends AbstractClientRequest {
 
         if ((headerValues == null) && (request != null)) {
             headerValues = new HeaderValuesMap(
-            		new HeaderExtractor(request, response));
+                    new HeaderExtractor(request, response));
         }
         return (headerValues);
 
@@ -175,7 +175,7 @@ public class ServletRequest extends AbstractClientRequest {
 
         if ((param == null) && (request != null)) {
             param = new ReadOnlyEnumerationMap<String>(
-            		new ParameterExtractor(request));
+                    new ParameterExtractor(request));
         }
         return (param);
 
@@ -197,7 +197,7 @@ public class ServletRequest extends AbstractClientRequest {
             return getApplicationScope();
         }
         throw new IllegalArgumentException(scope + " does not exist. "
-        		+ "Call getAvailableScopes() first to check.");
+                + "Call getAvailableScopes() first to check.");
     }
 
     /** {@inheritDoc} */
@@ -249,7 +249,7 @@ public class ServletRequest extends AbstractClientRequest {
             rd.include(request, response);
         } catch (ServletException ex) {
             throw ServletUtil.wrapServletException(
-            		ex, "ServletException including path '" + path + "'.");
+                    ex, "ServletException including path '" + path + "'.");
         }
     }
 
@@ -271,7 +271,7 @@ public class ServletRequest extends AbstractClientRequest {
             rd.forward(request, response);
         } catch (ServletException ex) {
             throw ServletUtil.wrapServletException(
-            		ex, "ServletException including path '" + path + "'.");
+                    ex, "ServletException including path '" + path + "'.");
         }
     }
 

@@ -19,7 +19,7 @@
  * under the License.
  */
 /**
- * Extractors to get attributes and other info 
+ * Extractors to get attributes and other info
  * from servlet requests and contexts.
  */
 package org.apache.tiles.request.jakarta.servlet.extractor;
