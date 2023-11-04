@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Adapt XML header in `checkstyle.xml` and `pom.xml`
 * Replace Copyrights in sources to current Apache-2.0-version
 * Add `NotAServletEnvironmentException` to replace dependency `tiles-request-servlet` with `tiles-request-api`
 * Replace tabs with spaces and make right-trim
