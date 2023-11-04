@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `easymock` from 5.1.0 to 5.2.0
 * Bump `junit` from 4.7 to 4.13.2
 * Add more informations to `pom.xml`
 * Adapt XML header in `checkstyle.xml` and `pom.xml`
