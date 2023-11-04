@@ -48,11 +48,22 @@ public class InitParameterExtractor implements HasKeys<String> {
         this.context = context;
     }
 
+    /**
+     * The enumeration of the keys in the stored attributes.
+     *
+     * @return The keys.
+     */
     @Override
     public Enumeration<String> getKeys() {
         return context.getInitParameterNames();
     }
 
+    /**
+     * Returns the value of the attribute with the given key.
+     *
+     * @param key The key of the attribute.
+     * @return The value.
+     */
     @Override
     public String getValue(String key) {
         return context.getInitParameter(key);

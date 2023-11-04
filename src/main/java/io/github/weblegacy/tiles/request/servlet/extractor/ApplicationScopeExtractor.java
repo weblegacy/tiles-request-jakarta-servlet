@@ -28,7 +28,8 @@ import org.apache.tiles.request.attribute.AttributeExtractor;
 
 /**
  * Extract attributes from application scope.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
+ * <p>Copied from Apache tiles-request-servlet 1.0.7
+ * and adapted for Jakarta EE 9 </p>
  *
  * @version $Rev$ $Date$
  */
@@ -48,21 +49,43 @@ public class ApplicationScopeExtractor implements AttributeExtractor {
         this.context = context;
     }
 
+    /**
+     * Sets a value for the given key.
+     *
+     * @param name The key of the attribute.
+     * @param value The value of the attribute.
+     */
     @Override
     public void setValue(String name, Object value) {
         context.setAttribute(name, value);
     }
 
+    /**
+     * Removes an attribute.
+     *
+     * @param name The key of the attribute to remove.
+     */
     @Override
     public void removeValue(String name) {
         context.removeAttribute(name);
     }
 
+    /**
+     * The enumeration of the keys of the stored attributes.
+     *
+     * @return The keys.
+     */
     @Override
     public Enumeration<String> getKeys() {
         return context.getAttributeNames();
     }
 
+    /**
+     * Returns the value of the attribute with the given key.
+     *
+     * @param key The key of the attribute.
+     * @return The value.
+     */
     @Override
     public Object getValue(String key) {
         return context.getAttribute(key);
