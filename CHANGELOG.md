@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `maven-checkstyle-plugin` from 3.2.2 to 3.3.1
 * Bump `easymock` from 5.1.0 to 5.2.0
 * Bump `junit` from 4.7 to 4.13.2
 * Add more informations to `pom.xml`
