@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `maven-javadoc-plugin` from 3.5.0 to 3.6.0
 * Bump `maven-enforcer-plugin` from 3.3.0 to 3.4.1
 * Bump `maven-dependency-plugin` from 3.5.0 to 3.6.1
 * Bump `checkstyle` from 10.12.3 to 10.12.4
