@@ -1,7 +1,7 @@
-module io.github.weblegacy.tiles.request.servlet {
+module org.apache.tiles.request.jakarta.servlet {
 	requires org.apache.tiles.request;
 	
 	requires transitive jakarta.servlet;
 	
-	exports io.github.weblegacy.tiles.request.servlet;
+	exports org.apache.tiles.request.jakarta.servlet;
 }
