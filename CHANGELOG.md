@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `maven-project-info-reports-plugin` from 3.4.3 to 3.4.5
 * Bump `maven-pmd-plugin` from 3.20.0 to 3.21.2
 * Bump `maven-javadoc-plugin` from 3.5.0 to 3.6.0
 * Bump `maven-enforcer-plugin` from 3.3.0 to 3.4.1
