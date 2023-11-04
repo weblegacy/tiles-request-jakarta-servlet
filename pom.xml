@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
               <groupId>org.apache.tiles</groupId>
-              <artifactId>tiles-request-servlet</artifactId>
+              <artifactId>tiles-request-api</artifactId>
               <version>1.0.7</version>
            </dependency>
         <dependency>

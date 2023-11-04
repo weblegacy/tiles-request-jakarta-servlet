@@ -27,7 +27,6 @@ import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.Request;
 import org.apache.tiles.request.RequestWrapper;
-import org.apache.tiles.request.servlet.NotAServletEnvironmentException;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;

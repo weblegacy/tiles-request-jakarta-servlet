@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Add `NotAServletEnvironmentException` to replace dependency `tiles-request-servlet` with `tiles-request-api`
 * Replace tabs with spaces and make right-trim
 * Rename packages from `io.github.weblegacy.tiles.request.servlet` to `org.apache.tiles.request.jakarta.servlet`
 * Change `license-header.txt` and `NOTICE.txt`
