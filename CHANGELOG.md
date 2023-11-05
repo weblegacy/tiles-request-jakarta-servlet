@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Add `maven-deploy-plugin`
 * Add `maven-clean-plugin`
 * Add `maven-assembly-plugin`
 * Add `maven-antrun-plugin`
