@@ -17,10 +17,10 @@ package org.apache.tiles.request.jakarta.servlet.extractor;
 
 import java.util.Enumeration;
 
+import org.apache.tiles.request.attribute.EnumeratedValuesExtractor;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import org.apache.tiles.request.attribute.EnumeratedValuesExtractor;
 
 /**
  * Extract header values from an HTTP request.
@@ -48,6 +48,7 @@ public class HeaderExtractor implements EnumeratedValuesExtractor {
      */
     public HeaderExtractor(HttpServletRequest request,
             HttpServletResponse response) {
+
         this.request = request;
         this.response = response;
     }
@@ -60,7 +61,7 @@ public class HeaderExtractor implements EnumeratedValuesExtractor {
     @Override
     public Enumeration<String> getKeys() {
         return request.getHeaderNames();
-   }
+    }
 
     /**
      * Returns the value of the attribute with the given key.

@@ -17,9 +17,9 @@ package org.apache.tiles.request.jakarta.servlet.extractor;
 
 import java.util.Enumeration;
 
-import jakarta.servlet.ServletContext;
-
 import org.apache.tiles.request.attribute.HasKeys;
+
+import jakarta.servlet.ServletContext;
 
 /**
  * Extract initialization parameters from the servlet context.
@@ -64,5 +64,4 @@ public class InitParameterExtractor implements HasKeys<String> {
     public String getValue(String key) {
         return context.getInitParameter(key);
     }
-
 }

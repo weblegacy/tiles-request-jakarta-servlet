@@ -17,9 +17,9 @@ package org.apache.tiles.request.jakarta.servlet.extractor;
 
 import java.util.Enumeration;
 
-import jakarta.servlet.http.HttpServletRequest;
-
 import org.apache.tiles.request.attribute.HasKeys;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Extract parameters from the request.

@@ -15,15 +15,18 @@
  */
 package org.apache.tiles.request.jakarta.servlet.extractor;
 
-import static org.easymock.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Enumeration;
 
-import jakarta.servlet.ServletContext;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.ServletContext;
 
 /**
  * Tests {@link InitParameterExtractor}.
@@ -83,5 +86,4 @@ public class InitParameterExtractorTest {
         assertEquals("value", extractor.getValue("name"));
         verify(context);
     }
-
 }

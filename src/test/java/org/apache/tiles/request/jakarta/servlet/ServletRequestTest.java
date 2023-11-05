@@ -15,20 +15,18 @@
  */
 package org.apache.tiles.request.jakarta.servlet;
 
-
-import static org.easymock.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.Map;
-
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.collection.HeaderValuesMap;
@@ -37,6 +35,12 @@ import org.apache.tiles.request.collection.ScopeMap;
 import org.apache.tiles.request.jakarta.servlet.extractor.HeaderExtractor;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Tests {@link ServletRequest}.
@@ -398,5 +402,4 @@ public class ServletRequestTest {
         assertTrue(req.isUserInRole("myrole"));
         verify(applicationContext, request, response);
     }
-
 }

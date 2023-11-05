@@ -15,13 +15,13 @@
  */
 package org.apache.tiles.request.jakarta.servlet.extractor;
 
-import java.util.Enumeration;
 import java.util.Collections;
+import java.util.Enumeration;
+
+import org.apache.tiles.request.attribute.AttributeExtractor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-
-import org.apache.tiles.request.attribute.AttributeExtractor;
 
 /**
  * Extract attributes from session scope.
@@ -80,6 +80,7 @@ public class SessionScopeExtractor implements AttributeExtractor {
         if (session != null) {
             return session.getAttributeNames();
         }
+
         return Collections.enumeration(Collections.<String>emptySet());
     }
 
@@ -96,6 +97,7 @@ public class SessionScopeExtractor implements AttributeExtractor {
         if (session != null) {
             return session.getAttribute(key);
         }
+
         return null;
     }
 }

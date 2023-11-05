@@ -38,6 +38,7 @@ import org.apache.tiles.request.jakarta.servlet.extractor.SessionScopeExtractor;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -88,19 +89,16 @@ public class ServletRequest extends AbstractClientRequest {
      */
     private Addable<String> responseHeaders = null;
 
-
     /**
      * The lazily instantiated {@code Map} of header name-values combinations
      * (immutable).
      */
     private Map<String, String[]> headerValues = null;
 
-
     /**
      * The lazily instantiated {@code Map} of request parameter name-value.
      */
     private Map<String, String> param = null;
-
 
     /**
      * The lazily instantiated {@code Map} of request scope attributes.
@@ -112,7 +110,6 @@ public class ServletRequest extends AbstractClientRequest {
      */
     private Map<String, Object> sessionScope = null;
 
-
     /**
      * Creates a new instance of ServletTilesRequestContext.
      *
@@ -123,6 +120,7 @@ public class ServletRequest extends AbstractClientRequest {
     public ServletRequest(
             ApplicationContext applicationContext,
             HttpServletRequest request, HttpServletResponse response) {
+
         super(applicationContext);
         this.request = request;
         this.response = response;
@@ -136,13 +134,12 @@ public class ServletRequest extends AbstractClientRequest {
      */
     @Override
     public Map<String, String> getHeader() {
-
-        if ((header == null) && (request != null)) {
+        if (header == null && request != null) {
             header = new ReadOnlyEnumerationMap<String>(
                     new HeaderExtractor(request, null));
         }
-        return (header);
 
+        return header;
     }
 
     /**
@@ -153,12 +150,11 @@ public class ServletRequest extends AbstractClientRequest {
      */
     @Override
     public Addable<String> getResponseHeaders() {
-
-        if ((responseHeaders == null) && (response != null)) {
+        if (responseHeaders == null && response != null) {
             responseHeaders = new HeaderExtractor(null, response);
         }
-        return (responseHeaders);
 
+        return responseHeaders;
     }
 
     /**
@@ -170,15 +166,13 @@ public class ServletRequest extends AbstractClientRequest {
      */
     @Override
     public Map<String, String[]> getHeaderValues() {
-
-        if ((headerValues == null) && (request != null)) {
+        if (headerValues == null && request != null) {
             headerValues = new HeaderValuesMap(
                     new HeaderExtractor(request, response));
         }
-        return (headerValues);
 
+        return headerValues;
     }
-
 
     /**
      * Return an immutable Map that maps request parameter names to the first
@@ -188,15 +182,13 @@ public class ServletRequest extends AbstractClientRequest {
      */
     @Override
     public Map<String, String> getParam() {
-
-        if ((param == null) && (request != null)) {
+        if (param == null && request != null) {
             param = new ReadOnlyEnumerationMap<String>(
                     new ParameterExtractor(request));
         }
-        return (param);
 
+        return param;
     }
-
 
     /**
      * Return an immutable Map that maps request parameter names to the set of
@@ -222,13 +214,14 @@ public class ServletRequest extends AbstractClientRequest {
      */
     @Override
     public Map<String, Object> getContext(String scope) {
-        if(REQUEST_SCOPE.equals(scope)){
+        if (REQUEST_SCOPE.equals(scope)) {
             return getRequestScope();
-        }else if("session".equals(scope)){
+        } else if ("session".equals(scope)) {
             return getSessionScope();
-        }else if(APPLICATION_SCOPE.equals(scope)){
+        } else if (APPLICATION_SCOPE.equals(scope)) {
             return getApplicationScope();
         }
+
         throw new IllegalArgumentException(scope + " does not exist. "
                 + "Call getAvailableScopes() first to check.");
     }
@@ -239,12 +232,11 @@ public class ServletRequest extends AbstractClientRequest {
      * @return the context map from request scope
      */
     public Map<String, Object> getRequestScope() {
-
-        if ((requestScope == null) && (request != null)) {
+        if (requestScope == null && request != null) {
             requestScope = new ScopeMap(new RequestScopeExtractor(request));
         }
-        return (requestScope);
 
+        return requestScope;
     }
 
     /**
@@ -253,12 +245,11 @@ public class ServletRequest extends AbstractClientRequest {
      * @return the context map from session scope
      */
     public Map<String, Object> getSessionScope() {
-
-        if ((sessionScope == null) && (request != null)) {
+        if (sessionScope == null && request != null) {
             sessionScope = new ScopeMap(new SessionScopeExtractor(request));
         }
-        return (sessionScope);
 
+        return sessionScope;
     }
 
     /**
@@ -291,7 +282,6 @@ public class ServletRequest extends AbstractClientRequest {
             forward(path);
         }
     }
-
 
     /**
     * Includes the content of a resource (servlet, JSP page, HTML file) in the
@@ -361,6 +351,7 @@ public class ServletRequest extends AbstractClientRequest {
         if (outputStream == null) {
             outputStream = response.getOutputStream();
         }
+
         return outputStream;
     }
 
@@ -417,6 +408,7 @@ public class ServletRequest extends AbstractClientRequest {
         if (writer == null) {
             writer = response.getWriter();
         }
+
         return writer;
     }
 

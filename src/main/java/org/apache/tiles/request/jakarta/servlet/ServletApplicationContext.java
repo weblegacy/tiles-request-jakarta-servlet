@@ -79,13 +79,12 @@ public class ServletApplicationContext implements ApplicationContext {
      * @return the context map from application scope
      */
     public Map<String, Object> getApplicationScope() {
-
-        if ((applicationScope == null) && (servletContext != null)) {
+        if (applicationScope == null && servletContext != null) {
             applicationScope = new ScopeMap(
                     new ApplicationScopeExtractor(servletContext));
         }
-        return (applicationScope);
 
+        return applicationScope;
     }
 
     /**
@@ -95,13 +94,12 @@ public class ServletApplicationContext implements ApplicationContext {
      * @return initialization parameters
      */
     public Map<String, String> getInitParams() {
-
-        if ((initParam == null) && (servletContext != null)) {
+        if (initParam == null && servletContext != null) {
             initParam = new ReadOnlyEnumerationMap<String>(
                     new InitParameterExtractor(servletContext));
         }
-        return (initParam);
 
+        return initParam;
     }
 
     /**

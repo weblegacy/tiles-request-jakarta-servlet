@@ -42,7 +42,9 @@ public class ExternalWriterHttpServletResponse extends
      */
     public ExternalWriterHttpServletResponse(HttpServletResponse response,
             PrintWriter writer) {
+
         super(response);
+
         this.writer = writer;
     }
 

@@ -15,7 +15,6 @@
  */
 package org.apache.tiles.request.jakarta.servlet;
 
-
 /**
  * Exception that indicates that a resource could not be used because it is not
  * in a servlet environment.
@@ -59,5 +58,4 @@ public class NotAServletEnvironmentException extends RuntimeException {
     public NotAServletEnvironmentException(String message, Throwable e) {
         super(message, e);
     }
-
 }

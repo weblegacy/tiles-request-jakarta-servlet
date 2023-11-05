@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Resolve `PMD` and `Checkstyle` warnings
 * Resolve all JavaDoc-warnings
 * Remove not needed aggregate-reports
 * Set better JavaDoc-options

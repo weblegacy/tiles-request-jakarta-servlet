@@ -17,9 +17,9 @@ package org.apache.tiles.request.jakarta.servlet.extractor;
 
 import java.util.Enumeration;
 
-import jakarta.servlet.ServletContext;
-
 import org.apache.tiles.request.attribute.AttributeExtractor;
+
+import jakarta.servlet.ServletContext;
 
 /**
  * Extract attributes from application scope.

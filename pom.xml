@@ -397,7 +397,8 @@
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
                     <enableRulesSummary>false</enableRulesSummary>
-                </configuration>
+                    <headerLocation>license-header.txt</headerLocation>
+               </configuration>
                 <reportSets>
                     <reportSet>
                         <id>default</id>
