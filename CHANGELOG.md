@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Enforce minimum MAVEN-Version from 3.6.3 to 3.3.9
 * Define own `slf4j`-version
 * Reformat JavaDocs
 * Resolve JDK-warnings
