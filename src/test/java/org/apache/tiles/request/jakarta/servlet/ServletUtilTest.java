@@ -30,9 +30,8 @@ import org.junit.Test;
 
 /**
  * Tests {@link ServletUtil}.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9.</p>
  */
 public class ServletUtilTest {
 

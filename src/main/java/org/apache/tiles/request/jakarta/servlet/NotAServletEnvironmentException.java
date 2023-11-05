@@ -20,7 +20,8 @@ package org.apache.tiles.request.jakarta.servlet;
  * Exception that indicates that a resource could not be used because it is not
  * in a servlet environment.
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public class NotAServletEnvironmentException extends RuntimeException {
     private static final long serialVersionUID = 6842625298829813103L;

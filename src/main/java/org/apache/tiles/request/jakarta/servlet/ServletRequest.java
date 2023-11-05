@@ -43,10 +43,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet-based implementation of the TilesApplicationContext interface.
- * <p>Copied from Apache tiles-request-servlet 1.0.7
- * and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public class ServletRequest extends AbstractClientRequest {
 
@@ -78,41 +77,38 @@ public class ServletRequest extends AbstractClientRequest {
     private PrintWriter writer;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of header name-value
-     * combinations (immutable).</p>
+     * The lazily instantiated {@code Map} of header name-value combinations
+     * (immutable).
      */
     private Map<String, String> header = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of header name-value
-     * combinations (write-only).</p>
+     * The lazily instantiated {@code Map} of header name-value combinations
+     * (write-only).
      */
     private Addable<String> responseHeaders = null;
 
 
     /**
-     * <p>The lazily instantitated <code>Map</code> of header name-values
-     * combinations (immutable).</p>
+     * The lazily instantiated {@code Map} of header name-values combinations
+     * (immutable).
      */
     private Map<String, String[]> headerValues = null;
 
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of request
-     * parameter name-value.</p>
+     * The lazily instantiated {@code Map} of request parameter name-value.
      */
     private Map<String, String> param = null;
 
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of request scope
-     * attributes.</p>
+     * The lazily instantiated {@code Map} of request scope attributes.
      */
     private Map<String, Object> requestScope = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of session scope
-     * attributes.</p>
+     * The lazily instantiated {@code Map} of session scope attributes.
      */
     private Map<String, Object> sessionScope = null;
 
@@ -121,8 +117,8 @@ public class ServletRequest extends AbstractClientRequest {
      * Creates a new instance of ServletTilesRequestContext.
      *
      * @param applicationContext The application context.
-     * @param request The request object.
-     * @param response The response object.
+     * @param request            The request object.
+     * @param response           The response object.
      */
     public ServletRequest(
             ApplicationContext applicationContext,
@@ -252,6 +248,7 @@ public class ServletRequest extends AbstractClientRequest {
      * Forwards to a path.
      *
      * @param path The path to forward to.
+     *
      * @throws IOException If something goes wrong during the operation.
      */
     private void forward(String path) throws IOException {

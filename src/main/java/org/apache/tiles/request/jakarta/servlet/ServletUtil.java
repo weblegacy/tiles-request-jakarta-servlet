@@ -27,10 +27,9 @@ import jakarta.servlet.ServletException;
 
 /**
  * Utilities for Tiles request servlet support.
- * <p>Copied from Apache tiles-request-servlet 1.0.7
- * and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public final class ServletUtil {
 
@@ -41,11 +40,12 @@ public final class ServletUtil {
     }
 
     /**
-     * Wraps a ServletException to create an IOException
-     * with the root cause if present.
+     * Wraps a ServletException to create an IOException with the root cause if
+     * present.
      *
-     * @param ex The exception to wrap.
+     * @param ex      The exception to wrap.
      * @param message The message of the exception.
+     *
      * @return The wrapped exception.
      */
     public static IOException wrapServletException(ServletException ex,
@@ -64,13 +64,13 @@ public final class ServletUtil {
     }
 
     /**
-     * Returns the application context getting it from the servlet context.
-     * It must be first saved creating a
-     * {@link ServletApplicationContext} and using
-     * {@link ApplicationAccess#register(ApplicationContext)}.
+     * Returns the application context getting it from the servlet context. It
+     * must be first saved creating a {@link ServletApplicationContext} and
+     * using {@link ApplicationAccess#register(ApplicationContext)}.
      *
      * @param servletContext The servlet context.
-     * @return The application context, if found, <code>null</code> otherwise.
+     *
+     * @return The application context, if found, {@code null} otherwise.
      */
     public static ApplicationContext getApplicationContext(
             ServletContext servletContext) {
@@ -82,9 +82,11 @@ public final class ServletUtil {
      * Opens a TilesRequestContext until it finds a ServletTilesRequestContext.
      *
      * @param request The request to open.
+     *
      * @return The servlet-based request context.
+     *
      * @throws NotAServletEnvironmentException If a servlet-based request
-     * context could not be found.
+     *                                         context could not be found.
      */
     public static ServletRequest getServletRequest(Request request) {
         Request currentRequest = request;
@@ -110,9 +112,11 @@ public final class ServletUtil {
      * Gets a servlet context from a TilesApplicationContext.
      *
      * @param applicationContext The application context to analyze.
+     *
      * @return The servlet context.
+     *
      * @throws NotAServletEnvironmentException If the application context is not
-     * servlet-based.
+     *                                         servlet-based.
      */
     public static ServletContext getServletContext(
             ApplicationContext applicationContext) {

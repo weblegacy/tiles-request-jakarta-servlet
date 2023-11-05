@@ -34,9 +34,9 @@ import org.junit.Test;
 
 /**
  * Tests {@link ServletApplicationContext}.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public class ServletApplicationContextTest {
 
@@ -91,6 +91,7 @@ public class ServletApplicationContextTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getResource(java.lang.String)}.
+     *
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -119,6 +120,7 @@ public class ServletApplicationContextTest {
 
     /**
      * Test method for {@link ServletApplicationContext#getResources(String)}.
+     *
      * @throws IOException If something goes wrong.
      */
     @Test

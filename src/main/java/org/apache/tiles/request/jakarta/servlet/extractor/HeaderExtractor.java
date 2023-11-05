@@ -24,10 +24,9 @@ import org.apache.tiles.request.attribute.EnumeratedValuesExtractor;
 
 /**
  * Extract header values from an HTTP request.
- * <p>Copied from Apache tiles-request-servlet 1.0.7
- * and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public class HeaderExtractor implements EnumeratedValuesExtractor {
 
@@ -44,7 +43,7 @@ public class HeaderExtractor implements EnumeratedValuesExtractor {
     /**
      * Constructor.
      *
-     * @param request The request.
+     * @param request  The request.
      * @param response The response.
      */
     public HeaderExtractor(HttpServletRequest request,
@@ -67,6 +66,7 @@ public class HeaderExtractor implements EnumeratedValuesExtractor {
      * Returns the value of the attribute with the given key.
      *
      * @param key The key of the attribute.
+     *
      * @return The value.
      */
     @Override
@@ -78,6 +78,7 @@ public class HeaderExtractor implements EnumeratedValuesExtractor {
      * Returns the values stored at the given key.
      *
      * @param key The key of the attribute.
+     *
      * @return The values of the attribute.
      */
     @Override
@@ -89,6 +90,7 @@ public class HeaderExtractor implements EnumeratedValuesExtractor {
      * Sets a value for the given key.
      *
      * @param key The key of the attribute.
+     *
      * @param value The value of the attribute.
      */
     @Override

@@ -40,9 +40,9 @@ import org.junit.Test;
 
 /**
  * Tests {@link ServletRequest}.
- * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public class ServletRequestTest {
 
@@ -79,7 +79,8 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doForward(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     *
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test
@@ -97,6 +98,7 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doForward(java.lang.String)}.
+     *
      * @throws IOException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -114,7 +116,8 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doForward(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     *
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -136,7 +139,8 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doForward(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     *
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test
@@ -154,7 +158,8 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doInclude(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     *
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test
@@ -171,6 +176,7 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doInclude(java.lang.String)}.
+     *
      * @throws IOException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -187,7 +193,8 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doInclude(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     *
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -270,6 +277,7 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getOutputStream()}.
+     *
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -285,6 +293,7 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getWriter()}.
+     *
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -300,6 +309,7 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getPrintWriter()}.
+     *
      * @throws IOException If something goes wrong.
      */
     @Test

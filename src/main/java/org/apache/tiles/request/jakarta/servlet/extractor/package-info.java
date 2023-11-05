@@ -15,7 +15,7 @@
  */
 
 /**
- * Extractors to get attributes and other info
- * from servlet requests and contexts.
+ * Extractors to get attributes and other info from servlet requests and
+ * contexts.
  */
 package org.apache.tiles.request.jakarta.servlet.extractor;

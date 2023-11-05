@@ -25,10 +25,9 @@ import org.apache.tiles.request.attribute.AttributeExtractor;
 
 /**
  * Extract attributes from session scope.
- * <p>Copied from Apache tiles-request-servlet 1.0.7
- * and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public class SessionScopeExtractor implements AttributeExtractor {
 
@@ -49,7 +48,7 @@ public class SessionScopeExtractor implements AttributeExtractor {
     /**
      * Sets a value for the given key.
      *
-     * @param name The key of the attribute.
+     * @param name  The key of the attribute.
      * @param value The value of the attribute.
      */
     @Override
@@ -88,6 +87,7 @@ public class SessionScopeExtractor implements AttributeExtractor {
      * Returns the value of the attribute with the given key.
      *
      * @param key The key of the attribute.
+     *
      * @return The value.
      */
     @Override

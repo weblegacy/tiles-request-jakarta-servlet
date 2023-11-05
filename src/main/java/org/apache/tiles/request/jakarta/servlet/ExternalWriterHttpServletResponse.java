@@ -22,10 +22,9 @@ import jakarta.servlet.http.HttpServletResponseWrapper;
 
 /**
  * Wraps an HTTP response and overrides its print writer.
- * <p>Copied from Apache tiles-request-servlet 1.0.7
- * and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public class ExternalWriterHttpServletResponse extends
         HttpServletResponseWrapper {
@@ -39,7 +38,7 @@ public class ExternalWriterHttpServletResponse extends
      * Constructor.
      *
      * @param response The response to wrap.
-     * @param writer The print writer to use, instead of the response's one.
+     * @param writer   The print writer to use, instead of the response's one.
      */
     public ExternalWriterHttpServletResponse(HttpServletResponse response,
             PrintWriter writer) {

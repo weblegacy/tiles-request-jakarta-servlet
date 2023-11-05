@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Reformat JavaDocs
 * Resolve JDK-warnings
 * Add site-documentation
 * Add `maven-resources-plugin`

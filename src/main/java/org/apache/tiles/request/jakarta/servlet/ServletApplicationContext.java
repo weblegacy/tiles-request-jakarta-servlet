@@ -34,10 +34,9 @@ import jakarta.servlet.ServletContext;
 
 /**
  * Servlet-based implementation of the TilesApplicationContext interface.
- * <p>Copied from Apache tiles-request-servlet 1.0.7
- * and adapted for Jakarta EE 9 </p>
  *
- * @version $Rev$ $Date$
+ * <p>Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.</p>
  */
 public class ServletApplicationContext implements ApplicationContext {
 
@@ -47,14 +46,12 @@ public class ServletApplicationContext implements ApplicationContext {
     private ServletContext servletContext;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of application scope
-     * attributes.</p>
+     * The lazily instantiated {@code Map} of application scope attributes.
      */
     private Map<String, Object> applicationScope = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of context initialization
-     * parameters.</p>
+     * The lazily instantiated {@code Map} of context initialization parameters.
      */
     private Map<String, String> initParam = null;
 
