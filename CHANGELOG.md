@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Define own `slf4j`-version
 * Reformat JavaDocs
 * Resolve JDK-warnings
 * Add site-documentation
