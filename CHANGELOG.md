@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Remove `Automatic-Module-Name` because existing `module-info.java`
 * Remove `japicmp-maven-plugin`
 * Add `maven-site-plugin`
 * Bump `jacoco-maven-plugin` from 0.8.10 to 0.8.11

@@ -69,7 +69,6 @@
     </issueManagement>
 
     <properties>
-        <jpms.moduleName>${groupId}.tiles.request.servlet</jpms.moduleName>
         <mavenVersion>[3.6.3,4)</mavenVersion>
         <javaVersion>8</javaVersion>
         <surefireVersion>3.2.1</surefireVersion>
@@ -222,9 +221,6 @@
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
-                        <manifestEntries>
-                            <Automatic-Module-Name>${jpms.moduleName}</Automatic-Module-Name>
-                        </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
