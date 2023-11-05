@@ -77,6 +77,14 @@
         <project.build.sourceEncoding>${sourceEncoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
         <mavenVersion>[3.3.9,4)</mavenVersion>
+
+        <tilesRequestApiVersion>1.0.7</tilesRequestApiVersion>
+        <junitVersion>4.13.2</junitVersion>
+        <easymockVersion>5.2.0</easymockVersion>
+
+        <!-- Version 6.0.0 requires Java 11 -->
+        <jakartaServletVersion>5.0.0</jakartaServletVersion>
+
         <surefireVersion>3.2.1</surefireVersion>
         <slf4jVersion>2.0.9</slf4jVersion>
     </properties>
@@ -85,7 +93,7 @@
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-request-api</artifactId>
-            <version>1.0.7</version>
+            <version>${tilesRequestApiVersion}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -107,20 +115,19 @@
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
-            <!-- Version 6.0.0 requires Java 11 -->
-            <version>5.0.0</version>
+            <version>${jakartaServletVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junitVersion}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymock</artifactId>
-            <version>5.2.0</version>
+            <version>${easymockVersion}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -172,6 +179,39 @@
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>3.6.0</version>
+                    <configuration>
+                        <detectLinks>true</detectLinks>
+                        <dependencyLinks>
+                            <dependencyLink>
+                                <groupId>junit</groupId>
+                                <artifactId>junit</artifactId>
+                                <url>https://javadoc.io/doc/junit/junit/${junitVersion}</url>
+                            </dependencyLink>
+                            <dependencyLink>
+                                <groupId>org.easymock</groupId>
+                                <artifactId>easymock</artifactId>
+                                <url>https://javadoc.io/doc/org.easymock/easymock/${easymockVersion}</url>
+                            </dependencyLink>
+                            <dependencyLink>
+                                <groupId>jakarta.servlet</groupId>
+                                <artifactId>jakarta.servlet-api</artifactId>
+                                <url>https://javadoc.io/doc/jakarta.servlet/jakarta.servlet-api/${jakartaServletVersion}</url>
+                            </dependencyLink>
+                            <dependencyLink>
+                                <groupId>org.apache.tiles</groupId>
+                                <artifactId>tiles-request-api</artifactId>
+                                <url>https://javadoc.io/doc/org.apache.tiles/tiles-request-api/${tilesRequestApiVersion}</url>
+                            </dependencyLink>
+                        </dependencyLinks>
+                        <linksource>true</linksource>
+                        <failOnError>true</failOnError>
+                        <quiet>false</quiet>
+                        <verbose>true</verbose>
+                        <doclint>all</doclint>
+                        <notimestamp>true</notimestamp>
+                        <release>9</release>
+                        <legacyMode>true</legacyMode>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jxr-plugin</artifactId>
@@ -394,51 +434,12 @@
 
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <detectLinks>true</detectLinks>
-                    <dependencyLinks>
-                        <dependencyLink>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-api</artifactId>
-                            <url>https://junit.org/junit5/docs/current/api</url>
-                        </dependencyLink>
-                        <dependencyLink>
-                            <groupId>javax.portlet</groupId>
-                            <artifactId>portlet-api</artifactId>
-                            <url>https://javadoc.io/doc/javax.portlet/portlet-api/${javaxPortletVersion}</url>
-                        </dependencyLink>
-                        <dependencyLink>
-                            <groupId>javax.servlet</groupId>
-                            <artifactId>javax.servlet-api</artifactId>
-                            <url>https://javadoc.io/doc/javax.servlet/javax.servlet-api/${javaxServletVersion}</url>
-                        </dependencyLink>
-                        <dependencyLink>
-                            <groupId>javax.faces</groupId>
-                            <artifactId>javax.faces-api</artifactId>
-                            <url>https://javadoc.io/static/javax.faces/javax.faces-api/${javaxFacesVersion}/javadocs</url>
-                        </dependencyLink>
-                    </dependencyLinks>
-                    <linksource>true</linksource>
-                    <failOnError>false</failOnError>
-                    <quiet>true</quiet>
-                    <doclint>none</doclint>
-                    <notimestamp>true</notimestamp>
-                    <release>9</release>
-                </configuration>
                 <reportSets>
                     <reportSet>
                         <id>default</id>
                         <reports>
                             <report>javadoc-no-fork</report>
                             <report>test-javadoc-no-fork</report>
-                        </reports>
-                    </reportSet>
-                    <reportSet>
-                        <id>aggregrate</id>
-                        <inherited>false</inherited>
-                        <reports>
-                            <report>aggregate-no-fork</report>
-                            <report>test-aggregate-no-fork</report>
                         </reports>
                     </reportSet>
                 </reportSets>

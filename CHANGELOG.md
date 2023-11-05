@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Set better JavaDoc-options
 * Add Homepage-URL
 * Enforce minimum MAVEN-Version from 3.6.3 to 3.3.9
 * Define own `slf4j`-version
