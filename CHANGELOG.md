@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Add `maven-release-plugin`
 * Add `maven-install-plugin`
 * Add `maven-deploy-plugin`
 * Add `maven-clean-plugin`
