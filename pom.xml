@@ -206,11 +206,10 @@
                         <linksource>true</linksource>
                         <failOnError>true</failOnError>
                         <quiet>false</quiet>
-                        <verbose>true</verbose>
+                        <verbose>false</verbose>
                         <doclint>all</doclint>
                         <notimestamp>true</notimestamp>
-                        <release>9</release>
-                        <legacyMode>true</legacyMode>
+                        <source>8</source>
                     </configuration>
                 </plugin>
                 <plugin>

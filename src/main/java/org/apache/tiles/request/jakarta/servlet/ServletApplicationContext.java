@@ -64,12 +64,20 @@ public class ServletApplicationContext implements ApplicationContext {
         this.servletContext = servletContext;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns the servlet context to use.
+     *
+     * @return the servlet context to use
+     */
     public Object getContext() {
         return servletContext;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns the context map from application scope.
+     *
+     * @return the context map from application scope
+     */
     public Map<String, Object> getApplicationScope() {
 
         if ((applicationScope == null) && (servletContext != null)) {
@@ -80,7 +88,12 @@ public class ServletApplicationContext implements ApplicationContext {
 
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Return an immutable Map that maps context application initialization
+     * parameters to their values.
+     *
+     * @return initialization parameters
+     */
     public Map<String, String> getInitParams() {
 
         if ((initParam == null) && (servletContext != null)) {
@@ -91,7 +104,15 @@ public class ServletApplicationContext implements ApplicationContext {
 
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Return the application resource mapped to the specified path.
+     *
+     * @param localePath path to the desired resource, including the Locale
+     *                   suffix.
+     *
+     * @return the first located resource which matches the given path or null
+     *         if no such resource exists.
+     */
     public ApplicationResource getResource(String localePath) {
         try {
             URL url = servletContext.getResource(localePath);
@@ -105,7 +126,15 @@ public class ServletApplicationContext implements ApplicationContext {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Return a localized version of an ApplicationResource.
+     *
+     * @param base   the ApplicationResource.
+     * @param locale the desired Locale.
+     *
+     * @return the first located resource which matches the given path or null
+     *         if no such resource exists.
+     */
     public ApplicationResource getResource(ApplicationResource base, Locale locale) {
         try {
             URL url = servletContext.getResource(base.getLocalePath(locale));
@@ -119,7 +148,13 @@ public class ServletApplicationContext implements ApplicationContext {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Return the application resources mapped to the specified path.
+     *
+     * @param path to the desired resource.
+     *
+     * @return all resources which match the given path.
+     */
     public Collection<ApplicationResource> getResources(String path) {
         ArrayList<ApplicationResource> resources = new ArrayList<ApplicationResource>();
         resources.add(getResource(path));

@@ -41,6 +41,12 @@ import org.junit.Test;
 public class ServletApplicationContextTest {
 
     /**
+     * Empty default constructor
+     */
+    public ServletApplicationContextTest() {
+    }
+
+    /**
      * The servlet context.
      */
     private ServletContext servletContext;
@@ -60,7 +66,7 @@ public class ServletApplicationContextTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getContext()}.
+     * Test method for {@link ServletApplicationContext#getContext()}.
      */
     @Test
     public void testGetContext() {
@@ -70,7 +76,7 @@ public class ServletApplicationContextTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getApplicationScope()}.
+     * Test method for {@link ServletApplicationContext#getApplicationScope()}.
      */
     @Test
     public void testGetApplicationScope() {
@@ -80,7 +86,7 @@ public class ServletApplicationContextTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getInitParams()}.
+     * Test method for {@link ServletApplicationContext#getInitParams()}.
      */
     @Test
     public void testGetInitParams() {
@@ -90,7 +96,7 @@ public class ServletApplicationContextTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getResource(java.lang.String)}.
+     * Test method for {@link ServletApplicationContext#getResource(String)}.
      *
      * @throws IOException If something goes wrong.
      */

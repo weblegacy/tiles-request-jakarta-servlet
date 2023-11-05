@@ -128,7 +128,13 @@ public class ServletRequest extends AbstractClientRequest {
         this.response = response;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Return an immutable Map that maps header names to the first (or only)
+     * header value (as a String).
+     *
+     * @return The header map.
+     */
+    @Override
     public Map<String, String> getHeader() {
 
         if ((header == null) && (request != null)) {
@@ -139,7 +145,13 @@ public class ServletRequest extends AbstractClientRequest {
 
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Return an add-able object that can be used to write headers to the
+     * response.
+     *
+     * @return An add-able object.
+     */
+    @Override
     public Addable<String> getResponseHeaders() {
 
         if ((responseHeaders == null) && (response != null)) {
@@ -149,7 +161,14 @@ public class ServletRequest extends AbstractClientRequest {
 
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Return an immutable Map that maps header names to the set of all values
+     * specified in the request (as a String array). Header names must be
+     * matched in a case-insensitive manner.
+     *
+     * @return The header values map.
+     */
+    @Override
     public Map<String, String[]> getHeaderValues() {
 
         if ((headerValues == null) && (request != null)) {
@@ -161,7 +180,13 @@ public class ServletRequest extends AbstractClientRequest {
     }
 
 
-    /** {@inheritDoc} */
+    /**
+     * Return an immutable Map that maps request parameter names to the first
+     * (or only) value (as a String).
+     *
+     * @return The parameter map.
+     */
+    @Override
     public Map<String, String> getParam() {
 
         if ((param == null) && (request != null)) {
@@ -173,11 +198,28 @@ public class ServletRequest extends AbstractClientRequest {
     }
 
 
-    /** {@inheritDoc} */
+    /**
+     * Return an immutable Map that maps request parameter names to the set of
+     * all values (as a String array).
+     *
+     * @return The parameter values map.
+     */
+    @Override
     public Map<String, String[]> getParamValues() {
         return request.getParameterMap();
     }
 
+    /**
+     * Returns a context map, given the scope name.
+     *
+     * <p>This method always return a map for all the scope names returned by
+     * {@link #getAvailableScopes()}. That map may be writable, or immutable,
+     * depending on the implementation.
+     *
+     * @param scope The name of the scope.
+     *
+     * @return The context.
+     */
     @Override
     public Map<String, Object> getContext(String scope) {
         if(REQUEST_SCOPE.equals(scope)){
@@ -191,7 +233,11 @@ public class ServletRequest extends AbstractClientRequest {
                 + "Call getAvailableScopes() first to check.");
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns the context map from request scope.
+     *
+     * @return the context map from request scope
+     */
     public Map<String, Object> getRequestScope() {
 
         if ((requestScope == null) && (request != null)) {
@@ -201,8 +247,11 @@ public class ServletRequest extends AbstractClientRequest {
 
     }
 
-
-    /** {@inheritDoc} */
+    /**
+     * Returns the context map from session scope.
+     *
+     * @return the context map from session scope
+     */
     public Map<String, Object> getSessionScope() {
 
         if ((sessionScope == null) && (request != null)) {
@@ -212,12 +261,29 @@ public class ServletRequest extends AbstractClientRequest {
 
     }
 
+    /**
+     * Returns all available scopes.
+     *
+     * <p>The scopes are ordered according to their lifetime, the innermost,
+     * shorter lived scope appears first, and the outermost, longer lived scope
+     * appears last. Besides, the scopes "request" and "application" always
+     * included in the list.</p>
+     *
+     * @return All the available scopes.
+     */
     @Override
     public List<String> getAvailableScopes() {
         return SCOPES;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Forwards to a path.
+     *
+     * @param path The path to forward to.
+     *
+     * @throws IOException If something goes wrong when forwarding.
+     */
+    @Override
     public void doForward(String path) throws IOException {
         if (response.isCommitted()) {
             doInclude(path);
@@ -227,7 +293,17 @@ public class ServletRequest extends AbstractClientRequest {
     }
 
 
-    /** {@inheritDoc} */
+    /**
+    * Includes the content of a resource (servlet, JSP page, HTML file) in the
+    * response. In essence, this method enables programmatic server-side includes.
+    *
+    * @param path a {@code String} specifying the pathname to the resource. If
+    *        it is relative, it must be relative against the current servlet.
+    *
+    * @throws IOException if the included resource throws this exception
+    *
+    * @see RequestDispatcher#include(jakarta.servlet.ServletRequest, ServletResponse)
+    */
     public void doInclude(String path) throws IOException {
         RequestDispatcher rd = request.getRequestDispatcher(path);
 
@@ -267,7 +343,20 @@ public class ServletRequest extends AbstractClientRequest {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns a {@link jakarta.servlet.ServletOutputStream} suitable for
+     * writing binary data in the response. The servlet container does not
+     * encode the binary data.
+     *
+     * @return a {@link jakarta.servlet.ServletOutputStream} for writing binary
+     *         data
+     *
+     * @throws IllegalStateException if the {@code getWriter} method has
+     *                               been called on this response
+     * @throws IOException           if an input or output exception occurred
+     *
+     * @see HttpServletResponse#getOutputStream()
+     */
     public OutputStream getOutputStream() throws IOException {
         if (outputStream == null) {
             outputStream = response.getOutputStream();
@@ -275,12 +364,55 @@ public class ServletRequest extends AbstractClientRequest {
         return outputStream;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns a {@code Writer} object that can send character text to the
+     * client. The {@code Writer} uses the character encoding returned by
+     * {@link HttpServletResponse#getCharacterEncoding()}. If the response's
+     * character encoding has not been specified as described in
+     * {@code getCharacterEncoding} (i.e., the method just returns the default
+     * value {@code ISO-8859-1}), {@code getWriter} updates it to
+     * {@code ISO-8859-1}.
+     *
+     * @return a {@code Writer} object that can return character data to the
+     *         client
+     *
+     * @throws java.io.UnsupportedEncodingException if the character encoding
+     *                               returned by {@code getCharacterEncoding}
+     *                               cannot be used
+     * @throws IllegalStateException if the {@code getOutputStream} method has
+     *                               already been called for this response
+     *                               object
+     * @throws IOException           if an input or output exception occurred
+     *
+     * @see #getPrintWriter()
+     * @see HttpServletResponse#getWriter()
+     */
     public Writer getWriter() throws IOException {
         return getPrintWriter();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns a {@code PrintWriter} object that can send character text to the
+     * client. The {@code PrintWriter} uses the character encoding returned by
+     * {@link HttpServletResponse#getCharacterEncoding()}. If the response's
+     * character encoding has not been specified as described in
+     * {@code getCharacterEncoding} (i.e., the method just returns the default
+     * value {@code ISO-8859-1}), {@code getWriter} updates it to
+     * {@code ISO-8859-1}.
+     *
+     * @return a {@code PrintWriter} object that can return character data to
+     *         the client
+     *
+     * @throws java.io.UnsupportedEncodingException if the character encoding
+     *                               returned by {@code getCharacterEncoding}
+     *                               cannot be used
+     * @throws IllegalStateException if the {@code getOutputStream} method has
+     *                               already been called for this response
+     *                               object
+     * @throws IOException           if an input or output exception occurred
+     *
+     * @see HttpServletResponse#getWriter()
+     */
     public PrintWriter getPrintWriter() throws IOException {
         if (writer == null) {
             writer = response.getWriter();
@@ -288,30 +420,81 @@ public class ServletRequest extends AbstractClientRequest {
         return writer;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns a boolean indicating if the response has been committed. A
+     * committed response has already had its status code and headers written.
+     *
+     * @return a boolean indicating if the response has been committed
+     *
+     * @see HttpServletResponse#isCommitted()
+     */
     public boolean isResponseCommitted() {
         return response.isCommitted();
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Sets the content type of the response being sent to the client, if the
+     * response has not been committed yet. The given content type may include
+     * a character encoding specification, for example,
+     * {@code>text/html;charset=UTF-8}. The response's character encoding is
+     * only set from the given content type if this method is called before
+     * {@code getWriter} is called.
+     *
+     * @param contentType a {@code String} specifying the MIME type of the
+     *                    content
+     *
+     * @see HttpServletResponse#setContentType(String)
+     */
     public void setContentType(String contentType) {
         response.setContentType(contentType);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns the preferred {@code Locale} that the client will accept content
+     * in, based on the Accept-Language header. If the client request doesn't
+     * provide an Accept-Language header, this method returns the default
+     * locale for the server.
+     *
+     * @return the preferred {@code Locale} for the client
+     *
+     * @see HttpServletRequest#getLocale()
+     */
     public Locale getRequestLocale() {
         return request.getLocale();
     }
 
+    /**
+     * Returns the request object to use.
+     *
+     * @return the request object to use
+     */
     public HttpServletRequest getRequest() {
         return request;
     }
 
+    /**
+     * Returns the response object to use.
+     *
+     * @return the response object to use
+     */
     public HttpServletResponse getResponse() {
         return response;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns a boolean indicating whether the authenticated user is included
+     * in the specified logical "role". Roles and role membership can be
+     * defined using deployment descriptors. If the user has not been
+     * authenticated, the method returns {@code false}.
+     *
+     * @param role a {@code String} specifying the name of the role
+     *
+     * @return a {@code boolean} indicating whether the user making this
+     *         request belongs to a given role; {@code false} if the user has
+     *         not been authenticated
+     *
+     * @see HttpServletRequest#isUserInRole(String)
+     */
     public boolean isUserInRole(String role) {
         return request.isUserInRole(role);
     }

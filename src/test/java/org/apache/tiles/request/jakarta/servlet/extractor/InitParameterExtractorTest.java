@@ -34,6 +34,12 @@ import org.junit.Test;
 public class InitParameterExtractorTest {
 
     /**
+     * Empty default constructor
+     */
+    public InitParameterExtractorTest() {
+    }
+
+    /**
      * The servlet context.
      */
     private ServletContext context;
@@ -53,7 +59,7 @@ public class InitParameterExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.extractor.InitParameterExtractor#getKeys()}.
+     * Test method for {@link InitParameterExtractor#getKeys()}.
      */
     @Test
     public void testGetKeys() {

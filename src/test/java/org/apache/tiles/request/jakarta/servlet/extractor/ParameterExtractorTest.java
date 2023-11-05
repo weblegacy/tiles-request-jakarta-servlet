@@ -34,6 +34,12 @@ import org.junit.Test;
 public class ParameterExtractorTest {
 
     /**
+     * Empty default constructor
+     */
+    public ParameterExtractorTest() {
+    }
+
+    /**
      * The request.
      */
     private HttpServletRequest request;
@@ -53,7 +59,7 @@ public class ParameterExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.extractor.ParameterExtractor#getKeys()}.
+     * Test method for {@link ParameterExtractor#getKeys()}.
      */
     @Test
     public void testGetKeys() {
@@ -67,7 +73,7 @@ public class ParameterExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.extractor.ParameterExtractor#getValue(java.lang.String)}.
+     * Test method for {@link ParameterExtractor#getValue(String)}.
      */
     @Test
     public void testGetValue() {

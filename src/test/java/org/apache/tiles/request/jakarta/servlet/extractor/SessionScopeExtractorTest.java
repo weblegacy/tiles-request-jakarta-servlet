@@ -35,6 +35,12 @@ import org.junit.Test;
 public class SessionScopeExtractorTest {
 
     /**
+     * Empty default constructor
+     */
+    public SessionScopeExtractorTest() {
+    }
+
+    /**
      * The request.
      */
     private HttpServletRequest request;
@@ -60,7 +66,7 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link SessionScopeExtractor#setValue(java.lang.String, java.lang.Object)}.
+     * Test method for {@link SessionScopeExtractor#setValue(String, Object)}.
      */
     @Test
     public void testSetValue() {
@@ -73,7 +79,7 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link SessionScopeExtractor#removeValue(java.lang.String)}.
+     * Test method for {@link SessionScopeExtractor#removeValue(String)}.
      */
     @Test
     public void testRemoveValue() {
@@ -115,7 +121,7 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link SessionScopeExtractor#getValue(java.lang.String)}.
+     * Test method for {@link SessionScopeExtractor#getValue(String)}.
      */
     @Test
     public void testGetValue() {
@@ -128,7 +134,7 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link SessionScopeExtractor#getValue(java.lang.String)}.
+     * Test method for {@link SessionScopeExtractor#getValue(String)}.
      */
     @Test
     public void testGetValueNoSession() {

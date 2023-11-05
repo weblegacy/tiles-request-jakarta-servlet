@@ -34,6 +34,12 @@ import org.junit.Test;
 public class RequestScopeExtractorTest {
 
     /**
+     * Empty default constructor
+     */
+    public RequestScopeExtractorTest() {
+    }
+
+    /**
      * The request.
      */
     private HttpServletRequest request;
@@ -77,7 +83,7 @@ public class RequestScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.extractor.RequestScopeExtractor#getKeys()}.
+     * Test method for {@link RequestScopeExtractor#getKeys()}.
      */
     @Test
     public void testGetKeys() {

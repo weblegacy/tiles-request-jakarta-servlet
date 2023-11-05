@@ -35,6 +35,12 @@ import org.junit.Test;
 public class HeaderExtractorTest {
 
     /**
+     * Empty default constructor
+     */
+    public HeaderExtractorTest() {
+    }
+
+    /**
      * The request.
      */
     private HttpServletRequest request;
@@ -60,7 +66,7 @@ public class HeaderExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.extractor.HeaderExtractor#getKeys()}.
+     * Test method for {@link HeaderExtractor#getKeys()}.
      */
     @Test
     public void testGetKeys() {
@@ -74,7 +80,7 @@ public class HeaderExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.extractor.HeaderExtractor#getValue(java.lang.String)}.
+     * Test method for {@link HeaderExtractor#getValue(String)}.
      */
     @Test
     public void testGetValue() {
@@ -86,7 +92,7 @@ public class HeaderExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.extractor.HeaderExtractor#getValues(java.lang.String)}.
+     * Test method for {@link HeaderExtractor#getValues(String)}.
      */
     @Test
     public void testGetValues() {

@@ -37,7 +37,13 @@ import org.junit.Test;
 public class ExternalWriterHttpServletResponseTest {
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ExternalWriterHttpServletResponse#getWriter()}.
+     * Empty default constructor
+     */
+    public ExternalWriterHttpServletResponseTest() {
+    }
+
+    /**
+     * Test method for {@link ExternalWriterHttpServletResponse#getWriter()}.
      */
     @Test
     public void testGetWriter() {

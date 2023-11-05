@@ -28,6 +28,12 @@ import org.junit.Test;
 public class NotAServletEnvironmentExceptionTest {
 
     /**
+     * Empty default constructor
+     */
+    public NotAServletEnvironmentExceptionTest() {
+    }
+
+    /**
      * Test method for {@link NotAServletEnvironmentException#NotAServletEnvironmentException()}.
      */
     @Test
@@ -38,7 +44,7 @@ public class NotAServletEnvironmentExceptionTest {
     }
 
     /**
-     * Test method for {@link NotAServletEnvironmentException#NotAServletEnvironmentException(java.lang.String)}.
+     * Test method for {@link NotAServletEnvironmentException#NotAServletEnvironmentException(String)}.
      */
     @Test
     public void testNotAServletEnvironmentExceptionString() {
@@ -48,7 +54,7 @@ public class NotAServletEnvironmentExceptionTest {
     }
 
     /**
-     * Test method for {@link NotAServletEnvironmentException#NotAServletEnvironmentException(java.lang.Throwable)}.
+     * Test method for {@link NotAServletEnvironmentException#NotAServletEnvironmentException(Throwable)}.
      */
     @Test
     public void testNotAServletEnvironmentExceptionThrowable() {

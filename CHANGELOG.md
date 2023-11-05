@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Resolve all JavaDoc-warnings
 * Remove not needed aggregate-reports
 * Set better JavaDoc-options
 * Add Homepage-URL

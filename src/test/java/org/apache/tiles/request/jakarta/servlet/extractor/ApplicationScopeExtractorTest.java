@@ -34,6 +34,12 @@ import org.junit.Test;
 public class ApplicationScopeExtractorTest {
 
     /**
+     * Empty default constructor
+     */
+    public ApplicationScopeExtractorTest() {
+    }
+
+    /**
      * The servlet context.
      */
     private ServletContext context;
@@ -77,7 +83,7 @@ public class ApplicationScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.extractor.ApplicationScopeExtractor#getKeys()}.
+     * Test method for {@link ApplicationScopeExtractor#getKeys()}.
      */
     @Test
     public void testGetKeys() {

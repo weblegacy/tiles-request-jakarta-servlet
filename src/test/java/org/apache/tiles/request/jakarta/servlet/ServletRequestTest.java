@@ -47,6 +47,12 @@ import org.junit.Test;
 public class ServletRequestTest {
 
     /**
+     * Empty default constructor
+     */
+    public ServletRequestTest() {
+    }
+
+    /**
      * The application context.
      */
     private ApplicationContext applicationContext;
@@ -78,7 +84,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doForward(java.lang.String)}.
+     * Test method for {@link ServletRequest#doForward(String)}.
      *
      * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
@@ -97,7 +103,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doForward(java.lang.String)}.
+     * Test method for {@link ServletRequest#doForward(String)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -115,7 +121,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doForward(java.lang.String)}.
+     * Test method for {@link ServletRequest#doForward(String)}.
      *
      * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
@@ -138,7 +144,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doForward(java.lang.String)}.
+     * Test method for {@link ServletRequest#doForward(String)}.
      *
      * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
@@ -157,7 +163,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doInclude(java.lang.String)}.
+     * Test method for {@link ServletRequest#doInclude(String)}.
      *
      * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
@@ -175,7 +181,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doInclude(java.lang.String)}.
+     * Test method for {@link ServletRequest#doInclude(String)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -192,7 +198,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#doInclude(java.lang.String)}.
+     * Test method for {@link ServletRequest#doInclude(String)}.
      *
      * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
@@ -214,7 +220,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getHeader()}.
+     * Test method for {@link ServletRequest#getHeader()}.
      */
     @Test
     public void testGetHeader() {
@@ -222,7 +228,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getHeader()}.
+     * Test method for {@link ServletRequest#getHeader()}.
      */
     @Test
     public void testGetResponseHeaders() {
@@ -230,7 +236,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getHeaderValues()}.
+     * Test method for {@link ServletRequest#getHeaderValues()}.
      */
     @Test
     public void testGetHeaderValues() {
@@ -238,7 +244,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getParam()}.
+     * Test method for {@link ServletRequest#getParam()}.
      */
     @Test
     public void testGetParam() {
@@ -246,7 +252,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getParamValues()}.
+     * Test method for {@link ServletRequest#getParamValues()}.
      */
     @Test
     public void testGetParamValues() {
@@ -260,7 +266,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getRequestScope()}.
+     * Test method for {@link ServletRequest#getRequestScope()}.
      */
     @Test
     public void testGetRequestScope() {
@@ -268,7 +274,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getSessionScope()}.
+     * Test method for {@link ServletRequest#getSessionScope()}.
      */
     @Test
     public void testGetSessionScope() {
@@ -276,7 +282,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getOutputStream()}.
+     * Test method for {@link ServletRequest#getOutputStream()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -292,7 +298,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getWriter()}.
+     * Test method for {@link ServletRequest#getWriter()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -308,7 +314,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getPrintWriter()}.
+     * Test method for {@link ServletRequest#getPrintWriter()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -324,7 +330,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#isResponseCommitted()}.
+     * Test method for {@link ServletRequest#isResponseCommitted()}.
      */
     @Test
     public void testIsResponseCommitted() {
@@ -336,7 +342,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#setContentType(java.lang.String)}.
+     * Test method for {@link ServletRequest#setContentType(String)}.
      */
     @Test
     public void testSetContentType() {
@@ -348,7 +354,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getRequestLocale()}.
+     * Test method for {@link ServletRequest#getRequestLocale()}.
      */
     @Test
     public void testGetRequestLocale() {
@@ -362,7 +368,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getRequest()}.
+     * Test method for {@link ServletRequest#getRequest()}.
      */
     @Test
     public void testGetRequest() {
@@ -372,7 +378,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#getResponse()}.
+     * Test method for {@link ServletRequest#getResponse()}.
      */
     @Test
     public void testGetResponse() {
@@ -382,7 +388,7 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jakarta.servlet.ServletRequest#isUserInRole(java.lang.String)}.
+     * Test method for {@link ServletRequest#isUserInRole(String)}.
      */
     @Test
     public void testIsUserInRole() {

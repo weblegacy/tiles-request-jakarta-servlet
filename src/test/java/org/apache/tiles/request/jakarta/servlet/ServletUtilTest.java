@@ -36,6 +36,12 @@ import org.junit.Test;
 public class ServletUtilTest {
 
     /**
+     * Empty default constructor
+     */
+    public ServletUtilTest() {
+    }
+
+    /**
      * Test method for {@link ServletUtil#wrapServletException(ServletException, String)}.
      */
     @Test
@@ -47,6 +53,7 @@ public class ServletUtilTest {
     }
 
     /**
+     * Test method for {@link ServletUtil#wrapServletException(ServletException, String)}.
      */
     @Test
     public void testWrapServletExceptionWithCause() {

@@ -46,7 +46,12 @@ public class ExternalWriterHttpServletResponse extends
         this.writer = writer;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * Returns the print writer to use, instead of the response's one.
+     *
+     * @return the {@code PrintWriter} object that is set within the
+     *         constructor
+     */
     @Override
     public PrintWriter getWriter() {
         return writer;
