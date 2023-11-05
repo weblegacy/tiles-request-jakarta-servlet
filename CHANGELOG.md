@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Remove `japicmp-maven-plugin`
 * Add `maven-site-plugin`
 * Bump `jacoco-maven-plugin` from 0.8.10 to 0.8.11
 * Bump `spotbugs` from 4.7.3 to 4.8.0

@@ -174,11 +174,6 @@
                     <version>${surefireVersion}</version>
                 </plugin>
                 <plugin>
-                    <groupId>com.github.siom79.japicmp</groupId>
-                    <artifactId>japicmp-maven-plugin</artifactId>
-                    <version>0.17.2</version>
-                </plugin>
-                <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>4.7.3.6</version>
@@ -347,32 +342,6 @@
                         </reports>
                     </reportSet>
                 </reportSets>
-            </plugin>
-
-            <plugin>
-                <groupId>com.github.siom79.japicmp</groupId>
-                <artifactId>japicmp-maven-plugin</artifactId>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>cmp-report</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-                <configuration>
-                    <oldVersion>
-                        <dependency>
-                            <groupId>commons-chain</groupId>
-                            <artifactId>commons-chain</artifactId>
-                            <version>${oldversion}</version>
-                        </dependency>
-                    </oldVersion>
-                    <newVersion>
-                        <file>
-                            <path>${project.build.directory}/${project.artifactId}-${project.version}.${project.packaging}</path>
-                        </file>
-                    </newVersion>
-                </configuration>
             </plugin>
 
             <plugin>
