@@ -70,7 +70,6 @@
 
     <properties>
         <mavenVersion>[3.6.3,4)</mavenVersion>
-        <javaVersion>8</javaVersion>
         <surefireVersion>3.2.1</surefireVersion>
     </properties>
 
@@ -204,9 +203,9 @@
                         </goals>
                         <configuration>
                             <release>9</release>
-                            <compileSourceRoots> 
+                            <compileSourceRoots>
                                 <compileSourceRoot>${project.basedir}/src/main/java9</compileSourceRoot>
-                            </compileSourceRoots> 
+                            </compileSourceRoots>
                             <multiReleaseOutput>true</multiReleaseOutput>
                         </configuration>
                     </execution>
@@ -223,7 +222,7 @@
                         <configuration>
                             <rules>
                                 <requireJavaVersion>
-                                    <version>[8,)</version>
+                                    <version>[9,)</version>
                                 </requireJavaVersion>
                                 <requireMavenVersion>
                                     <version>${mavenVersion}</version>
