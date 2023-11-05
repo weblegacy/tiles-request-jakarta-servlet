@@ -27,6 +27,8 @@
     <name>Tiles request - Jakarta-Servlet support</name>
     <description>Tiles request implementation for Jakarta-Servlet technology.</description>
 
+    <url>https://weblegacy.github.io/tiles-request-jakarta-servlet/</url>
+
     <inceptionYear>2023</inceptionYear>
 
     <organization>
