@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `jacoco-maven-plugin` from 0.8.10 to 0.8.11
 * Bump `spotbugs` from 4.7.3 to 4.8.0
 * Bump `spotbugs-maven-plugin` from 4.7.3.4 to 4.7.3.6
 * Bump `maven-surefire-plugin` 3.0.0 and `maven-surefire-report-plugin` 3.1.2 to 3.2.1
