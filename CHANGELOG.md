@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Correct `module-info.java`
 * Add multi-release-compiling for JDK8 and JDK9
 * Remove `Automatic-Module-Name` because existing `module-info.java`
 * Remove `japicmp-maven-plugin`

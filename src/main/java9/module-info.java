@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@SuppressWarnings({"requires-automatic", "requires-transitive-automatic"})
 module org.apache.tiles.request.jakarta.servlet {
-    requires org.apache.tiles.request;
-
     requires transitive jakarta.servlet;
+    requires transitive tiles.request.api;
 
     exports org.apache.tiles.request.jakarta.servlet;
+    exports org.apache.tiles.request.jakarta.servlet.extractor;
 }
