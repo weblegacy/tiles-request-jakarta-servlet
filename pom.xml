@@ -373,14 +373,6 @@
                             <report>test-jxr-no-fork</report>
                         </reports>
                     </reportSet>
-                    <reportSet>
-                        <id>aggregrate</id>
-                        <inherited>false</inherited>
-                        <reports>
-                            <report>aggregate</report>
-                            <report>test-aggregate</report>
-                        </reports>
-                    </reportSet>
                 </reportSets>
             </plugin>
 
@@ -392,14 +384,6 @@
                         <reports>
                             <report>cpd</report>
                             <report>pmd</report>
-                        </reports>
-                    </reportSet>
-                    <reportSet>
-                        <id>aggregrate</id>
-                        <inherited>false</inherited>
-                        <reports>
-                            <report>aggregate-cpd</report>
-                            <report>aggregate-pmd-no-fork</report>
                         </reports>
                     </reportSet>
                 </reportSets>
@@ -420,13 +404,6 @@
                         <id>default</id>
                         <reports>
                             <report>checkstyle</report>
-                        </reports>
-                    </reportSet>
-                    <reportSet>
-                        <id>aggregrate</id>
-                        <inherited>false</inherited>
-                        <reports>
-                            <report>checkstyle-aggregate</report>
                         </reports>
                     </reportSet>
                 </reportSets>
