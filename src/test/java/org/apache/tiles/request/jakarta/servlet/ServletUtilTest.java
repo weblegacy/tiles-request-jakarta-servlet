@@ -26,7 +26,6 @@ import jakarta.servlet.ServletException;
 
 import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.request.ApplicationContext;
-import org.apache.tiles.request.jakarta.servlet.ServletUtil;
 import org.junit.Test;
 
 /**

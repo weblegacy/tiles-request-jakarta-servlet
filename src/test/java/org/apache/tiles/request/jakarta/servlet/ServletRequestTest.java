@@ -34,7 +34,6 @@ import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.collection.HeaderValuesMap;
 import org.apache.tiles.request.collection.ReadOnlyEnumerationMap;
 import org.apache.tiles.request.collection.ScopeMap;
-import org.apache.tiles.request.jakarta.servlet.ServletRequest;
 import org.apache.tiles.request.jakarta.servlet.extractor.HeaderExtractor;
 import org.junit.Before;
 import org.junit.Test;

@@ -23,6 +23,7 @@ package org.apache.tiles.request.jakarta.servlet;
  * @version $Rev$ $Date$
  */
 public class NotAServletEnvironmentException extends RuntimeException {
+    private static final long serialVersionUID = 6842625298829813103L;
 
     /**
      * Constructor.

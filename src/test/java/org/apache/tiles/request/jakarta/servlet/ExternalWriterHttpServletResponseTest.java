@@ -26,7 +26,6 @@ import java.io.Writer;
 
 import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.tiles.request.jakarta.servlet.ExternalWriterHttpServletResponse;
 import org.junit.Test;
 
 /**

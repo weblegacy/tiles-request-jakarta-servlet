@@ -29,7 +29,6 @@ import jakarta.servlet.ServletContext;
 import org.apache.tiles.request.ApplicationResource;
 import org.apache.tiles.request.collection.ReadOnlyEnumerationMap;
 import org.apache.tiles.request.collection.ScopeMap;
-import org.apache.tiles.request.jakarta.servlet.ServletApplicationContext;
 import org.junit.Before;
 import org.junit.Test;
 

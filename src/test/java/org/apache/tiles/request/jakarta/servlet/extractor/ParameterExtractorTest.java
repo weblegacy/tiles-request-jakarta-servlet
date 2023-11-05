@@ -22,7 +22,6 @@ import java.util.Enumeration;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-import org.apache.tiles.request.jakarta.servlet.extractor.ParameterExtractor;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -56,7 +55,6 @@ public class ParameterExtractorTest {
     /**
      * Test method for {@link org.apache.tiles.request.servlet.extractor.ParameterExtractor#getKeys()}.
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetKeys() {
         Enumeration<String> keys = createMock(Enumeration.class);

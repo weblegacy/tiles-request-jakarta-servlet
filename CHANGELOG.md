@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Resolve JDK-warnings
 * Add site-documentation
 * Add `maven-resources-plugin`
 * Enforce minimum JDK from 8 to 9

@@ -22,7 +22,6 @@ import java.util.Enumeration;
 
 import jakarta.servlet.ServletContext;
 
-import org.apache.tiles.request.jakarta.servlet.extractor.ApplicationScopeExtractor;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -80,7 +79,6 @@ public class ApplicationScopeExtractorTest {
     /**
      * Test method for {@link org.apache.tiles.request.servlet.extractor.ApplicationScopeExtractor#getKeys()}.
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetKeys() {
         Enumeration<String> keys = createMock(Enumeration.class);

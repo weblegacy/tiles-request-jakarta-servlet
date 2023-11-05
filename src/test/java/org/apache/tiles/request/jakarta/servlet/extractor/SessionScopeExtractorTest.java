@@ -23,7 +23,6 @@ import java.util.Enumeration;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-import org.apache.tiles.request.jakarta.servlet.extractor.SessionScopeExtractor;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -89,7 +88,6 @@ public class SessionScopeExtractorTest {
     /**
      * Test method for {@link SessionScopeExtractor#getKeys()}.
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetKeys() {
         Enumeration<String> keys = createMock(Enumeration.class);

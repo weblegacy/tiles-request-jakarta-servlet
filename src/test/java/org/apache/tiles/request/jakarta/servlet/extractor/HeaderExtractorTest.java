@@ -23,7 +23,6 @@ import java.util.Enumeration;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import org.apache.tiles.request.jakarta.servlet.extractor.HeaderExtractor;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -63,7 +62,6 @@ public class HeaderExtractorTest {
     /**
      * Test method for {@link org.apache.tiles.request.servlet.extractor.HeaderExtractor#getKeys()}.
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetKeys() {
         Enumeration<String> keys = createMock(Enumeration.class);
@@ -90,7 +88,6 @@ public class HeaderExtractorTest {
     /**
      * Test method for {@link org.apache.tiles.request.servlet.extractor.HeaderExtractor#getValues(java.lang.String)}.
      */
-    @SuppressWarnings("unchecked")
     @Test
     public void testGetValues() {
         Enumeration<String> keys = createMock(Enumeration.class);

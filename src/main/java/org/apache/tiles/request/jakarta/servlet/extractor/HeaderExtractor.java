@@ -80,7 +80,6 @@ public class HeaderExtractor implements EnumeratedValuesExtractor {
      * @param key The key of the attribute.
      * @return The values of the attribute.
      */
-    @SuppressWarnings("unchecked")
     @Override
     public Enumeration<String> getValues(String key) {
         return request.getHeaders(key);
