@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Change Artifact-Id to `tiles-request-jakarta-servlet` and version to 1.0.0-SNAPSHOT
 * Add `maven-release-plugin`
 * Add `maven-install-plugin`
 * Add `maven-deploy-plugin`
