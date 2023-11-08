@@ -31,6 +31,15 @@
 
     <inceptionYear>2023</inceptionYear>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments/>
+        </license>
+    </licenses>
+
     <organization>
         <name>Web-Legacy</name>
         <url>https://github.com/weblegacy</url>
