@@ -19,10 +19,10 @@ import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,8 +32,8 @@ import java.util.Locale;
 import org.apache.tiles.request.ApplicationResource;
 import org.apache.tiles.request.collection.ReadOnlyEnumerationMap;
 import org.apache.tiles.request.collection.ScopeMap;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.ServletContext;
 
@@ -64,7 +64,7 @@ public class ServletApplicationContextTest {
     /**
      * Sets up the test.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         servletContext = createMock(ServletContext.class);
         context = new ServletApplicationContext(servletContext);
@@ -86,7 +86,7 @@ public class ServletApplicationContextTest {
     @Test
     public void testGetApplicationScope() {
         replay(servletContext);
-        assertTrue(context.getApplicationScope() instanceof ScopeMap);
+        assertInstanceOf(ScopeMap.class, context.getApplicationScope());
         verify(servletContext);
     }
 
@@ -96,7 +96,7 @@ public class ServletApplicationContextTest {
     @Test
     public void testGetInitParams() {
         replay(servletContext);
-        assertTrue(context.getInitParams() instanceof ReadOnlyEnumerationMap);
+        assertInstanceOf(ReadOnlyEnumerationMap.class, context.getInitParams());
         verify(servletContext);
     }
 
@@ -116,8 +116,8 @@ public class ServletApplicationContextTest {
         replay(servletContext);
         ApplicationResource resource = context.getResource("/my/path.html");
         assertNotNull(resource);
-        assertEquals(resource.getLocalePath(), "/my/path.html");
-        assertEquals(resource.getPath(), "/my/path.html");
+        assertEquals("/my/path.html", resource.getLocalePath());
+        assertEquals("/my/path.html", resource.getPath());
         assertEquals(Locale.ROOT, resource.getLocale());
         ApplicationResource resourceFr = context.getResource(resource, Locale.FRENCH);
         assertNotNull(resourceFr);
@@ -142,7 +142,7 @@ public class ServletApplicationContextTest {
         replay(servletContext);
         Collection<ApplicationResource> resources = context.getResources("/my/path");
         assertEquals(1, resources.size());
-        assertEquals(resources.iterator().next().getLocalePath(), "/my/path");
+        assertEquals("/my/path", resources.iterator().next().getLocalePath());
         verify(servletContext);
     }
 }

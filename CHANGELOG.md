@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `junit` 4.13.2 to `junit-jupiter-api` 5.10.1
 * Change Artifact-Id to `tiles-request-jakarta-servlet` and version to 1.0.0-SNAPSHOT
 * Add `maven-release-plugin`
 * Add `maven-install-plugin`

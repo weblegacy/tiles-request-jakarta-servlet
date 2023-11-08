@@ -20,8 +20,11 @@ import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,8 +36,8 @@ import org.apache.tiles.request.collection.HeaderValuesMap;
 import org.apache.tiles.request.collection.ReadOnlyEnumerationMap;
 import org.apache.tiles.request.collection.ScopeMap;
 import org.apache.tiles.request.jakarta.servlet.extractor.HeaderExtractor;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -79,7 +82,7 @@ public class ServletRequestTest {
     /**
      * Sets up the test.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         applicationContext = createMock(ApplicationContext.class);
         request = createMock(HttpServletRequest.class);
@@ -89,138 +92,133 @@ public class ServletRequestTest {
 
     /**
      * Test method for {@link ServletRequest#doForward(String)}.
-     *
-     * @throws IOException      If something goes wrong.
-     * @throws ServletException If something goes wrong.
      */
     @Test
-    public void testDoForward() throws ServletException, IOException {
-        RequestDispatcher rd = createMock(RequestDispatcher.class);
+    public void testDoForward() {
+        assertDoesNotThrow(() -> {
+            RequestDispatcher rd = createMock(RequestDispatcher.class);
 
-        expect(response.isCommitted()).andReturn(false);
-        expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
-        rd.forward(request, response);
+            expect(response.isCommitted()).andReturn(false);
+            expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
+            rd.forward(request, response);
 
-        replay(applicationContext, request, response, rd);
-        req.doForward("/my/path");
-        verify(applicationContext, request, response, rd);
-    }
-
-    /**
-     * Test method for {@link ServletRequest#doForward(String)}.
-     *
-     * @throws IOException If something goes wrong.
-     */
-    @Test(expected = IOException.class)
-    public void testDoForwardNoDispatcher() throws IOException {
-        expect(response.isCommitted()).andReturn(false);
-        expect(request.getRequestDispatcher("/my/path")).andReturn(null);
-
-        replay(applicationContext, request, response);
-        try {
+            replay(applicationContext, request, response, rd);
             req.doForward("/my/path");
-        } finally {
-            verify(applicationContext, request, response);
-        }
+            verify(applicationContext, request, response, rd);
+        });
     }
 
     /**
      * Test method for {@link ServletRequest#doForward(String)}.
-     *
-     * @throws IOException      If something goes wrong.
-     * @throws ServletException If something goes wrong.
      */
-    @Test(expected = IOException.class)
-    public void testDoForwardServletException() throws ServletException, IOException {
-        RequestDispatcher rd = createMock(RequestDispatcher.class);
+    @Test
+    public void testDoForwardNoDispatcher() {
+        assertThrowsExactly(IOException.class, () -> {
+            expect(response.isCommitted()).andReturn(false);
+            expect(request.getRequestDispatcher("/my/path")).andReturn(null);
 
-        expect(response.isCommitted()).andReturn(false);
-        expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
-        rd.forward(request, response);
-        expectLastCall().andThrow(new ServletException());
+            replay(applicationContext, request, response);
+            try {
+                req.doForward("/my/path");
+            } finally {
+                verify(applicationContext, request, response);
+            }
+        });
+    }
 
-        replay(applicationContext, request, response, rd);
-        try {
+    /**
+     * Test method for {@link ServletRequest#doForward(String)}.
+     */
+    @Test
+    public void testDoForwardServletException() {
+        assertThrowsExactly(IOException.class, () -> {
+            RequestDispatcher rd = createMock(RequestDispatcher.class);
+
+            expect(response.isCommitted()).andReturn(false);
+            expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
+            rd.forward(request, response);
+            expectLastCall().andThrow(new ServletException());
+
+            replay(applicationContext, request, response, rd);
+            try {
+                req.doForward("/my/path");
+            } finally {
+                verify(applicationContext, request, response, rd);
+            }
+        });
+    }
+
+    /**
+     * Test method for {@link ServletRequest#doForward(String)}.
+     */
+    @Test
+    public void testDoForwardInclude() {
+        assertDoesNotThrow(() -> {
+            RequestDispatcher rd = createMock(RequestDispatcher.class);
+
+            expect(response.isCommitted()).andReturn(true);
+            expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
+            rd.include(request, response);
+
+            replay(applicationContext, request, response, rd);
             req.doForward("/my/path");
-        } finally {
             verify(applicationContext, request, response, rd);
-        }
+        });
     }
 
     /**
-     * Test method for {@link ServletRequest#doForward(String)}.
-     *
-     * @throws IOException      If something goes wrong.
-     * @throws ServletException If something goes wrong.
+     * Test method for {@link ServletRequest#doInclude(String)}.
      */
     @Test
-    public void testDoForwardInclude() throws ServletException, IOException {
-        RequestDispatcher rd = createMock(RequestDispatcher.class);
+    public void testDoInclude() {
+        assertDoesNotThrow(() -> {
+            RequestDispatcher rd = createMock(RequestDispatcher.class);
 
-        expect(response.isCommitted()).andReturn(true);
-        expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
-        rd.include(request, response);
+            expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
+            rd.include(request, response);
 
-        replay(applicationContext, request, response, rd);
-        req.doForward("/my/path");
-        verify(applicationContext, request, response, rd);
+            replay(applicationContext, request, response, rd);
+            req.doInclude("/my/path");
+            verify(applicationContext, request, response, rd);
+        });
     }
 
     /**
      * Test method for {@link ServletRequest#doInclude(String)}.
-     *
-     * @throws IOException      If something goes wrong.
-     * @throws ServletException If something goes wrong.
      */
     @Test
-    public void testDoInclude() throws IOException, ServletException {
-        RequestDispatcher rd = createMock(RequestDispatcher.class);
+    public void testDoIncludeNoDispatcher() {
+        assertThrowsExactly(IOException.class, () -> {
+            expect(request.getRequestDispatcher("/my/path")).andReturn(null);
 
-        expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
-        rd.include(request, response);
-
-        replay(applicationContext, request, response, rd);
-        req.doInclude("/my/path");
-        verify(applicationContext, request, response, rd);
+            replay(applicationContext, request, response);
+            try {
+                req.doInclude("/my/path");
+            } finally {
+                verify(applicationContext, request, response);
+            }
+        });
     }
 
     /**
      * Test method for {@link ServletRequest#doInclude(String)}.
-     *
-     * @throws IOException If something goes wrong.
      */
-    @Test(expected = IOException.class)
-    public void testDoIncludeNoDispatcher() throws IOException {
-        expect(request.getRequestDispatcher("/my/path")).andReturn(null);
+    @Test
+    public void testDoIncludeServletException() {
+        assertThrowsExactly(IOException.class, () -> {
+            RequestDispatcher rd = createMock(RequestDispatcher.class);
 
-        replay(applicationContext, request, response);
-        try {
-            req.doInclude("/my/path");
-        } finally {
-            verify(applicationContext, request, response);
-        }
-    }
+            expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
+            rd.include(request, response);
+            expectLastCall().andThrow(new ServletException());
 
-    /**
-     * Test method for {@link ServletRequest#doInclude(String)}.
-     *
-     * @throws IOException      If something goes wrong.
-     * @throws ServletException If something goes wrong.
-     */
-    @Test(expected = IOException.class)
-    public void testDoIncludeServletException() throws IOException, ServletException {
-        RequestDispatcher rd = createMock(RequestDispatcher.class);
-
-        expect(request.getRequestDispatcher("/my/path")).andReturn(rd);
-        rd.include(request, response);
-        expectLastCall().andThrow(new ServletException());
-
-        replay(applicationContext, request, response, rd);
-        try {
-            req.doInclude("/my/path");
-        } finally {
-            verify(applicationContext, request, response, rd);
-        }
+            replay(applicationContext, request, response, rd);
+            try {
+                req.doInclude("/my/path");
+            } finally {
+                verify(applicationContext, request, response, rd);
+            }
+        });
     }
 
     /**
@@ -228,7 +226,7 @@ public class ServletRequestTest {
      */
     @Test
     public void testGetHeader() {
-        assertTrue(req.getHeader() instanceof ReadOnlyEnumerationMap);
+        assertInstanceOf(ReadOnlyEnumerationMap.class, req.getHeader());
     }
 
     /**
@@ -236,7 +234,7 @@ public class ServletRequestTest {
      */
     @Test
     public void testGetResponseHeaders() {
-        assertTrue(req.getResponseHeaders() instanceof HeaderExtractor);
+        assertInstanceOf(HeaderExtractor.class, req.getResponseHeaders() );
     }
 
     /**
@@ -244,7 +242,7 @@ public class ServletRequestTest {
      */
     @Test
     public void testGetHeaderValues() {
-        assertTrue(req.getHeaderValues() instanceof HeaderValuesMap);
+        assertInstanceOf(HeaderValuesMap.class, req.getHeaderValues());
     }
 
     /**
@@ -252,7 +250,7 @@ public class ServletRequestTest {
      */
     @Test
     public void testGetParam() {
-        assertTrue(req.getParam() instanceof ReadOnlyEnumerationMap);
+        assertInstanceOf(ReadOnlyEnumerationMap.class, req.getParam());
     }
 
     /**
@@ -274,7 +272,7 @@ public class ServletRequestTest {
      */
     @Test
     public void testGetRequestScope() {
-        assertTrue(req.getRequestScope() instanceof ScopeMap);
+        assertInstanceOf(ScopeMap.class, req.getRequestScope());
     }
 
     /**
@@ -282,55 +280,55 @@ public class ServletRequestTest {
      */
     @Test
     public void testGetSessionScope() {
-        assertTrue(req.getSessionScope() instanceof ScopeMap);
+        assertInstanceOf(ScopeMap.class, req.getSessionScope());
     }
 
     /**
      * Test method for {@link ServletRequest#getOutputStream()}.
-     *
-     * @throws IOException If something goes wrong.
      */
     @Test
-    public void testGetOutputStream() throws IOException {
-        ServletOutputStream os = createMock(ServletOutputStream.class);
+    public void testGetOutputStream() {
+        assertDoesNotThrow(() -> {
+            ServletOutputStream os = createMock(ServletOutputStream.class);
 
-        expect(response.getOutputStream()).andReturn(os);
+            expect(response.getOutputStream()).andReturn(os);
 
-        replay(applicationContext, request, response, os);
-        assertEquals(req.getOutputStream(), os);
-        verify(applicationContext, request, response, os);
+            replay(applicationContext, request, response, os);
+            assertEquals(req.getOutputStream(), os);
+            verify(applicationContext, request, response, os);
+        });
     }
 
     /**
      * Test method for {@link ServletRequest#getWriter()}.
-     *
-     * @throws IOException If something goes wrong.
      */
     @Test
-    public void testGetWriter() throws IOException {
-        PrintWriter os = createMock(PrintWriter.class);
+    public void testGetWriter() {
+        assertDoesNotThrow(() -> {
+            PrintWriter os = createMock(PrintWriter.class);
 
-        expect(response.getWriter()).andReturn(os);
+            expect(response.getWriter()).andReturn(os);
 
-        replay(applicationContext, request, response, os);
-        assertEquals(req.getWriter(), os);
-        verify(applicationContext, request, response, os);
+            replay(applicationContext, request, response, os);
+            assertEquals(req.getWriter(), os);
+            verify(applicationContext, request, response, os);
+        });
     }
 
     /**
      * Test method for {@link ServletRequest#getPrintWriter()}.
-     *
-     * @throws IOException If something goes wrong.
      */
     @Test
-    public void testGetPrintWriter() throws IOException {
-        PrintWriter os = createMock(PrintWriter.class);
+    public void testGetPrintWriter() {
+        assertDoesNotThrow(() -> {
+            PrintWriter os = createMock(PrintWriter.class);
 
-        expect(response.getWriter()).andReturn(os);
+            expect(response.getWriter()).andReturn(os);
 
-        replay(applicationContext, request, response, os);
-        assertEquals(req.getPrintWriter(), os);
-        verify(applicationContext, request, response, os);
+            replay(applicationContext, request, response, os);
+            assertEquals(req.getPrintWriter(), os);
+            verify(applicationContext, request, response, os);
+        });
     }
 
     /**

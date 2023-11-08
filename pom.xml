@@ -79,7 +79,7 @@
         <mavenVersion>[3.3.9,4)</mavenVersion>
 
         <tilesRequestApiVersion>1.0.7</tilesRequestApiVersion>
-        <junitVersion>4.13.2</junitVersion>
+        <junitVersion>5.10.1</junitVersion>
         <easymockVersion>5.2.0</easymockVersion>
 
         <!-- Version 6.0.0 requires Java 11 -->
@@ -119,8 +119,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
             <version>${junitVersion}</version>
             <scope>test</scope>
         </dependency>
@@ -203,9 +203,9 @@
                         <detectLinks>true</detectLinks>
                         <dependencyLinks>
                             <dependencyLink>
-                                <groupId>junit</groupId>
-                                <artifactId>junit</artifactId>
-                                <url>https://javadoc.io/doc/junit/junit/${junitVersion}</url>
+                                <groupId>org.junit.jupiter</groupId>
+                                <artifactId>junit-jupiter-api</artifactId>
+                                <url>https://javadoc.io/doc/org.junit.jupiter/junit-jupiter-api/${junitVersion}</url>
                             </dependencyLink>
                             <dependencyLink>
                                 <groupId>org.easymock</groupId>
