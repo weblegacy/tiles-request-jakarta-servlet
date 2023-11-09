@@ -296,6 +296,10 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>3.2.1</version>
+                </plugin>
+                <plugin>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>3.12.1</version>
                 </plugin>
@@ -383,6 +387,23 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <configuration>
+                    <scmBranch>gh-pages</scmBranch>
+                    <tryUpdate>true</tryUpdate>
+                    <checkinComment>Site checkin for project ${project.name}, version ${project.version}.</checkinComment>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>scm-publish</id>
+                        <phase>site-deploy</phase>
+                        <goals>
+                            <goal>publish-scm</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>biz.aQute.bnd</groupId>

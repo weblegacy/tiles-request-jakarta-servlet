@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Add `maven-scm-publish-plugin`
 * Bump `spotbugs` from 4.8.0 to 4.8.1
 * Bump `spotbugs-maven-plugin` from 4.7.3.6 to 4.8.1.0
 * Bump `maven-javadoc-plugin` from 3.6.0 to 3.6.2
