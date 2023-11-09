@@ -121,7 +121,7 @@
                 Bump &quot;spotbugs&quot; from 4.7.3 to 4.8.0
             </action>
             <action dev="ste-gr" type="update">
-                Bump &quot;spotbugs-maven-plugin&quot; from 4.7.3.4 to 4.7.3.6
+                Bump &quot;spotbugs-maven-plugin&quot; from 4.7.3.4 to 4.8.1.0
             </action>
             <action dev="ste-gr" type="update">
                 Bump &quot;maven-surefire-plugin&quot; 3.0.0 and

@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `spotbugs-maven-plugin` from 4.7.3.6 to 4.8.1.0
 * Bump `maven-javadoc-plugin` from 3.6.0 to 3.6.2
 * Bump `maven-surefire-[report-]plugin` from to 3.2.1 to 3.2.2
 * Site-documentation: add new menu and reformat `site.xml`
