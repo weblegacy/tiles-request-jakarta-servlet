@@ -16,7 +16,7 @@ For documentation see [https://weblegacy.github.io/tiles-request-jakarta-servlet
 
 ### Prerequisites
 
-* Apache Maven 3.3.9\+
+* Apache Maven 3.8.1\+
 * JDK 9\+
 
 ### MAVEN-Profiles

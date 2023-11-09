@@ -85,7 +85,7 @@
         <propertiesEncoding>ISO-8859-1</propertiesEncoding>
         <project.build.sourceEncoding>${sourceEncoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
-        <mavenVersion>[3.3.9,4)</mavenVersion>
+        <mavenVersion>[3.8.1,4)</mavenVersion>
 
         <tilesRequestApiVersion>1.0.7</tilesRequestApiVersion>
         <junitVersion>5.10.1</junitVersion>
@@ -96,6 +96,16 @@
 
         <surefireVersion>3.2.1</surefireVersion>
         <slf4jVersion>2.0.9</slf4jVersion>
+
+        <!-- Configuration properties for the OSGi maven-bundle-plugin -->
+        <tiles.osgi.symbolicName>org.apache.tiles.request.jakarta.servlet</tiles.osgi.symbolicName>
+        <tiles.osgi.export>org.apache.tiles.*;version=${project.version};-noimport:=true</tiles.osgi.export>
+        <tiles.osgi.import>*;version=!</tiles.osgi.import>
+        <tiles.osgi.dynamicImport />
+        <tiles.osgi.private />
+
+        <!-- location of any manifest file used by maven-jar-plugin -->
+        <tiles.manifestfile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</tiles.manifestfile>
     </properties>
 
     <dependencies>
@@ -290,6 +300,11 @@
                     </dependencies>
                 </plugin>
                 <plugin>
+                    <groupId>biz.aQute.bnd</groupId>
+                    <artifactId>bnd-maven-plugin</artifactId>
+                    <version>7.0.0</version>
+                </plugin>
+                <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.11</version>
@@ -341,12 +356,45 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <archive>
+                        <manifestFile>${tiles.manifestfile}</manifestFile>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <configuration>
+                    <bnd>
+                        <![CDATA[
+                            Implementation-Vendor-Id: ${project.groupId}
+                            Bundle-SymbolicName: ${tiles.osgi.symbolicName}
+                            Export-Package: ${tiles.osgi.export}
+                            Private-Package: ${tiles.osgi.private}
+                            Import-Package: ${tiles.osgi.import}
+                            DynamicImport-Package: ${tiles.osgi.dynamicImport}
+                            Bundle-DocURL: ${project.url}
+                            Bundle-Developers:
+                            Bundle-SCM:
+                            Multi-Release: true
+                            -includepackage: !*
+                            -nouses: true
+                            -failok: true
+                            -noimportjava: true
+                        ]]>
+                    </bnd>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>bnd-process</id>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
