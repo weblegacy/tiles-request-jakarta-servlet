@@ -118,7 +118,7 @@
                 Bump &quot;jacoco-maven-plugin&quot; from 0.8.10 to 0.8.11
             </action>
             <action dev="ste-gr" type="update">
-                Bump &quot;spotbugs&quot; from 4.7.3 to 4.8.0
+                Bump &quot;spotbugs&quot; from 4.7.3 to 4.8.1
             </action>
             <action dev="ste-gr" type="update">
                 Bump &quot;spotbugs-maven-plugin&quot; from 4.7.3.4 to 4.8.1.0
