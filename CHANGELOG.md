@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Add `maven-gpg-plugin`
 * Mono-module-configuration for `site-deploy`
 * Add `maven-scm-publish-plugin`
 * Bump `spotbugs` from 4.8.0 to 4.8.1
