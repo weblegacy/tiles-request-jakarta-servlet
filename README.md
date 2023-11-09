@@ -8,9 +8,9 @@ For documentation see [https://weblegacy.github.io/tiles-request-jakarta-servlet
 
 ## Versions-Overview
 
-| Version     | JEE-Version  | Java-Version | Servlet | JSP | EL  | JSF | JSTL |
-|------------:|-------------:|-------------:|--------:|----:|----:|----:|-----:|
-| 1.0.7 (WiP) | Jakarta EE 9 |            8 |     5.0 | 3.0 | 4.0 | 3.0 |  2.0 |
+| Version                                                                                 | JEE-Version  | Java-Version | Servlet | JSP | EL  | JSF | JSTL |
+|----------------------------------------------------------------------------------------:|-------------:|-------------:|--------:|----:|----:|----:|-----:|
+| [1.0.0](https://github.com/weblegacy/tiles-request-jakarta-servlet/releases/tag/v1.0.0) | Jakarta EE 9 |            8 |     5.0 | 3.0 | 4.0 | 3.0 |  2.0 |
 
 ## Building Tiles-Request-Jakarta-Servlet
 

@@ -1,7 +1,8 @@
 # Changes
 
-## 1.0.7 / YYYY-MM-DD
+## 1.0.0 / 2023-11-10
 
+* Set version to 1.0.0
 * Reformat `NOTICE.txt`
 * Add `release`-profile
 * Add `maven-source-plugin`

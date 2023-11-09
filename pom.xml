@@ -22,7 +22,7 @@
 
     <groupId>io.github.weblegacy</groupId>
     <artifactId>tiles-request-jakarta-servlet</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>Tiles request - Jakarta-Servlet support</name>
     <description>Tiles request implementation for Jakarta-Servlet technology.</description>
