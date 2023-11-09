@@ -94,7 +94,7 @@
         <!-- Version 6.0.0 requires Java 11 -->
         <jakartaServletVersion>5.0.0</jakartaServletVersion>
 
-        <surefireVersion>3.2.1</surefireVersion>
+        <surefireVersion>3.2.2</surefireVersion>
         <slf4jVersion>2.0.9</slf4jVersion>
 
         <!-- Configuration properties for the OSGi maven-bundle-plugin -->

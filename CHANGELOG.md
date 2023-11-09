@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Bump `maven-surefire-[report-]plugin` from to 3.2.1 to 3.2.2
 * Site-documentation: add new menu and reformat `site.xml`
 * Add `changes.xml` documentation
 * Add `LICENSE.txt` and `NOTICE.txt` to jar-files

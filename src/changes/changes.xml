@@ -79,7 +79,7 @@
                 Add Homepage-URL
             </action>
             <action dev="ste-gr" type="update">
-                Enforce minimum MAVEN-Version from 3.6.3 to 3.3.9
+                Enforce minimum MAVEN-Version from 3.6.3 to 3.8.1
             </action>
             <action dev="ste-gr" type="update">
                 Define own &quot;slf4j&quot;-version
@@ -125,7 +125,7 @@
             </action>
             <action dev="ste-gr" type="update">
                 Bump &quot;maven-surefire-plugin&quot; 3.0.0 and
-                &quot;maven-surefire-report-plugin&quot; 3.1.2 to 3.2.1
+                &quot;maven-surefire-report-plugin&quot; 3.1.2 to 3.2.2
             </action>
             <action dev="ste-gr" type="update">
                 Bump &quot;maven-project-info-reports-plugin&quot; from 3.4.3 to 3.4.5
