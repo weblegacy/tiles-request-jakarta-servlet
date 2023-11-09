@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Site-documentation: add new menu and reformat `site.xml`
 * Add `changes.xml` documentation
 * Add `LICENSE.txt` and `NOTICE.txt` to jar-files
 * Add `bnd-maven-plugin` for OSGi-informations

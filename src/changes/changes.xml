@@ -25,6 +25,9 @@
     <body>
         <release version="1.0.0" date="2023-10-31" description="Initial Release">
             <action dev="ste-gr" type="add">
+                Site-documentation: add new menu and reformat &quot;site.xml&quot;
+            </action>
+            <action dev="ste-gr" type="add">
                 Add &quot;changes.xml&quot; documentation
             </action>
             <action dev="ste-gr" type="add">

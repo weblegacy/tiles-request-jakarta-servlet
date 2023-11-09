@@ -14,9 +14,10 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/DECORATION/1.8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 https://maven.apache.org/xsd/decoration-1.8.0.xsd"
-  name="Tiles request - Jakarta-Servlet support">
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 https://maven.apache.org/xsd/decoration-1.8.0.xsd"
+    name="Tiles request - Jakarta-Servlet support">
 
     <skin>
         <groupId>org.apache.maven.skins</groupId>
@@ -47,16 +48,20 @@
     </bannerRight>
 
     <body>
+        <menu name="Documentation">
+            <item name="Welcome" href="index.html" />
+            <item name="Changes" href="changes-report.html" />
+            <item name="Javadoc" href="apidocs/index.html" />
+            <item name="Releases"
+                href="https://github.com/weblegacy/tiles-request-jakarta-servlet/releases" />
+        </menu>
+
         <menu name="Apache Tiles&#8482;">
-            <item
-                   name="Tiles Home"
-                   href="https://tiles.apache.org/index.html"/>
-            <item
-                   name="Request Microframework"
-                   href="https://tiles.apache.org/tiles-request/index.html"/>
-            <item
-                   name="Tiles request - API"
-                   href="https://tiles.apache.org/tiles-request/tiles-request-api/index.html"/>
+            <item name="Tiles Home" href="https://tiles.apache.org/index.html" />
+            <item name="Request Microframework"
+                href="https://tiles.apache.org/tiles-request/index.html" />
+            <item name="Tiles request - API"
+                href="https://tiles.apache.org/tiles-request/tiles-request-api/index.html" />
         </menu>
 
         <menu ref="modules" />
