@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet.extractor,ParameterExtractor,0,15,0,0,0,5,0,3,0,3
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet.extractor,RequestScopeExtractor,0,26,0,0,0,9,0,5,0,5
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet.extractor,InitParameterExtractor,0,15,0,0,0,5,0,3,0,3
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet.extractor,ApplicationScopeExtractor,0,26,0,0,0,9,0,5,0,5
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet.extractor,SessionScopeExtractor,0,50,1,5,0,17,1,7,0,5
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet.extractor,HeaderExtractor,0,29,0,0,0,9,0,5,0,5
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet,ServletRequest,35,312,20,20,8,65,19,24,2,21
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet,ExternalWriterHttpServletResponse,0,10,0,0,0,4,0,2,0,2
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet,ServletUtil,41,25,8,2,13,7,6,3,2,2
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet,ServletApplicationContext,8,97,5,7,5,22,5,8,0,7
+Tiles request - Jakarta-Servlet support,org.apache.tiles.request.jakarta.servlet,NotAServletEnvironmentException,0,16,0,0,0,8,0,4,0,4

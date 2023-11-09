@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServletApplicationContext.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Tiles request - Jakarta-Servlet support</a> &gt; <a href="index.source.html" class="el_package">org.apache.tiles.request.jakarta.servlet</a> &gt; <span class="el_source">ServletApplicationContext.java</span></div><h1>ServletApplicationContext.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2023 Web-Legacy
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.tiles.request.jakarta.servlet;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Locale;
+import java.util.Map;
+
+import org.apache.tiles.request.ApplicationContext;
+import org.apache.tiles.request.ApplicationResource;
+import org.apache.tiles.request.collection.ReadOnlyEnumerationMap;
+import org.apache.tiles.request.collection.ScopeMap;
+import org.apache.tiles.request.jakarta.servlet.extractor.ApplicationScopeExtractor;
+import org.apache.tiles.request.jakarta.servlet.extractor.InitParameterExtractor;
+import org.apache.tiles.request.locale.URLApplicationResource;
+
+import jakarta.servlet.ServletContext;
+
+/**
+ * Servlet-based implementation of the TilesApplicationContext interface.
+ *
+ * &lt;p&gt;Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.&lt;/p&gt;
+ */
+public class ServletApplicationContext implements ApplicationContext {
+
+    /**
+     * The servlet context to use.
+     */
+    private ServletContext servletContext;
+
+    /**
+     * The lazily instantiated {@code Map} of application scope attributes.
+     */
+<span class="fc" id="L51">    private Map&lt;String, Object&gt; applicationScope = null;</span>
+
+    /**
+     * The lazily instantiated {@code Map} of context initialization parameters.
+     */
+<span class="fc" id="L56">    private Map&lt;String, String&gt; initParam = null;</span>
+
+    /**
+     * Creates a new instance of ServletTilesApplicationContext.
+     *
+     * @param servletContext The servlet context to use.
+     */
+<span class="fc" id="L63">    public ServletApplicationContext(ServletContext servletContext) {</span>
+<span class="fc" id="L64">        this.servletContext = servletContext;</span>
+<span class="fc" id="L65">    }</span>
+
+    /**
+     * Returns the servlet context to use.
+     *
+     * @return the servlet context to use
+     */
+    public Object getContext() {
+<span class="fc" id="L73">        return servletContext;</span>
+    }
+
+    /**
+     * Returns the context map from application scope.
+     *
+     * @return the context map from application scope
+     */
+    public Map&lt;String, Object&gt; getApplicationScope() {
+<span class="pc bpc" id="L82" title="2 of 4 branches missed.">        if (applicationScope == null &amp;&amp; servletContext != null) {</span>
+<span class="fc" id="L83">            applicationScope = new ScopeMap(</span>
+                    new ApplicationScopeExtractor(servletContext));
+        }
+
+<span class="fc" id="L87">        return applicationScope;</span>
+    }
+
+    /**
+     * Return an immutable Map that maps context application initialization
+     * parameters to their values.
+     *
+     * @return initialization parameters
+     */
+    public Map&lt;String, String&gt; getInitParams() {
+<span class="pc bpc" id="L97" title="2 of 4 branches missed.">        if (initParam == null &amp;&amp; servletContext != null) {</span>
+<span class="fc" id="L98">            initParam = new ReadOnlyEnumerationMap&lt;String&gt;(</span>
+                    new InitParameterExtractor(servletContext));
+        }
+
+<span class="fc" id="L102">        return initParam;</span>
+    }
+
+    /**
+     * Return the application resource mapped to the specified path.
+     *
+     * @param localePath path to the desired resource, including the Locale
+     *                   suffix.
+     *
+     * @return the first located resource which matches the given path or null
+     *         if no such resource exists.
+     */
+    public ApplicationResource getResource(String localePath) {
+        try {
+<span class="fc" id="L116">            URL url = servletContext.getResource(localePath);</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">            if (url != null) {</span>
+<span class="fc" id="L118">                return new URLApplicationResource(localePath, url);</span>
+            } else {
+<span class="fc" id="L120">                return null;</span>
+            }
+<span class="nc" id="L122">        } catch (MalformedURLException e) {</span>
+<span class="nc" id="L123">            return null;</span>
+        }
+    }
+
+    /**
+     * Return a localized version of an ApplicationResource.
+     *
+     * @param base   the ApplicationResource.
+     * @param locale the desired Locale.
+     *
+     * @return the first located resource which matches the given path or null
+     *         if no such resource exists.
+     */
+    public ApplicationResource getResource(ApplicationResource base, Locale locale) {
+        try {
+<span class="fc" id="L138">            URL url = servletContext.getResource(base.getLocalePath(locale));</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">            if (url != null) {</span>
+<span class="fc" id="L140">                return new URLApplicationResource(base.getPath(), locale, url);</span>
+            } else {
+<span class="nc" id="L142">                return null;</span>
+            }
+<span class="nc" id="L144">        } catch (MalformedURLException e) {</span>
+<span class="nc" id="L145">            return null;</span>
+        }
+    }
+
+    /**
+     * Return the application resources mapped to the specified path.
+     *
+     * @param path to the desired resource.
+     *
+     * @return all resources which match the given path.
+     */
+    public Collection&lt;ApplicationResource&gt; getResources(String path) {
+<span class="fc" id="L157">        ArrayList&lt;ApplicationResource&gt; resources = new ArrayList&lt;ApplicationResource&gt;();</span>
+<span class="fc" id="L158">        resources.add(getResource(path));</span>
+<span class="fc" id="L159">        return resources;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

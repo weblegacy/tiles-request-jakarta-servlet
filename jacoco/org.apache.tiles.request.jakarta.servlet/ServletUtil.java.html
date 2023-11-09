@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServletUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Tiles request - Jakarta-Servlet support</a> &gt; <a href="index.source.html" class="el_package">org.apache.tiles.request.jakarta.servlet</a> &gt; <span class="el_source">ServletUtil.java</span></div><h1>ServletUtil.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2023 Web-Legacy
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.tiles.request.jakarta.servlet;
+
+import java.io.IOException;
+
+import org.apache.tiles.request.ApplicationAccess;
+import org.apache.tiles.request.ApplicationContext;
+import org.apache.tiles.request.Request;
+import org.apache.tiles.request.RequestWrapper;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+
+/**
+ * Utilities for Tiles request servlet support.
+ *
+ * &lt;p&gt;Copied from Apache tiles-request-servlet 1.0.7 and adapted for
+ * Jakarta EE 9.&lt;/p&gt;
+ */
+public final class ServletUtil {
+
+    /**
+     * Constructor.
+     */
+    private ServletUtil() {
+    }
+
+    /**
+     * Wraps a ServletException to create an IOException with the root cause if
+     * present.
+     *
+     * @param ex      The exception to wrap.
+     * @param message The message of the exception.
+     *
+     * @return The wrapped exception.
+     */
+    public static IOException wrapServletException(ServletException ex,
+            String message) {
+        IOException retValue;
+<span class="fc" id="L54">        Throwable rootCause = ex.getRootCause();</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if (rootCause != null) {</span>
+            // Replace the ServletException with an IOException, with the root
+            // cause of the first as the cause of the latter.
+<span class="fc" id="L58">            retValue = new IOException(message, rootCause);</span>
+        } else {
+<span class="fc" id="L60">            retValue = new IOException(message, ex);</span>
+        }
+
+<span class="fc" id="L63">        return retValue;</span>
+    }
+
+    /**
+     * Returns the application context getting it from the servlet context. It
+     * must be first saved creating a {@link ServletApplicationContext} and
+     * using {@link ApplicationAccess#register(ApplicationContext)}.
+     *
+     * @param servletContext The servlet context.
+     *
+     * @return The application context, if found, {@code null} otherwise.
+     */
+    public static ApplicationContext getApplicationContext(
+            ServletContext servletContext) {
+<span class="fc" id="L77">        return (ApplicationContext) servletContext</span>
+<span class="fc" id="L78">                .getAttribute(ApplicationAccess.APPLICATION_CONTEXT_ATTRIBUTE);</span>
+    }
+
+    /**
+     * Opens a TilesRequestContext until it finds a ServletTilesRequestContext.
+     *
+     * @param request The request to open.
+     *
+     * @return The servlet-based request context.
+     *
+     * @throws NotAServletEnvironmentException If a servlet-based request
+     *                                         context could not be found.
+     */
+    public static ServletRequest getServletRequest(Request request) {
+<span class="nc" id="L92">        Request currentRequest = request;</span>
+        while (true) {
+<span class="nc bnc" id="L94" title="All 2 branches missed.">            if (currentRequest == null) {</span>
+<span class="nc" id="L95">                throw new NotAServletEnvironmentException(</span>
+                        &quot;Last Tiles request context is null&quot;);
+            }
+
+<span class="nc bnc" id="L99" title="All 2 branches missed.">            if (currentRequest instanceof ServletRequest) {</span>
+<span class="nc" id="L100">                return (ServletRequest) currentRequest;</span>
+            }
+<span class="nc bnc" id="L102" title="All 2 branches missed.">            if (!(currentRequest instanceof RequestWrapper)) {</span>
+<span class="nc" id="L103">                throw new NotAServletEnvironmentException(</span>
+                        &quot;Not a Servlet environment, not supported&quot;);
+            }
+<span class="nc" id="L106">            currentRequest = ((RequestWrapper)</span>
+<span class="nc" id="L107">                    currentRequest).getWrappedRequest();</span>
+        }
+    }
+
+    /**
+     * Gets a servlet context from a TilesApplicationContext.
+     *
+     * @param applicationContext The application context to analyze.
+     *
+     * @return The servlet context.
+     *
+     * @throws NotAServletEnvironmentException If the application context is not
+     *                                         servlet-based.
+     */
+    public static ServletContext getServletContext(
+            ApplicationContext applicationContext) {
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        if (applicationContext instanceof ServletApplicationContext) {</span>
+<span class="nc" id="L124">            return (ServletContext) ((ServletApplicationContext)</span>
+<span class="nc" id="L125">                    applicationContext).getContext();</span>
+        }
+
+<span class="nc" id="L128">        throw new NotAServletEnvironmentException(</span>
+                &quot;Not a Servlet-based environment&quot;);
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
