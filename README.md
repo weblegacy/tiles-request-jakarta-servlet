@@ -35,8 +35,7 @@ For documentation see [https://weblegacy.github.io/tiles-request-jakarta-servlet
 3. Generate site-documentation  
    `mvn site`  
 4. Publish site-documentation  
-   1. `mvn clean site`
-   2. `mvn scm-publish:publish-scm`
+   `mvn clean site-deploy`
 5. Generate Assemblies  
    `mvn package`
 8. Deploy all artifacts to `Central-Repo`  
