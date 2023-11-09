@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Add `release`-profile
 * Add `maven-source-plugin`
 * Add `maven-gpg-plugin`
 * Mono-module-configuration for `site-deploy`
