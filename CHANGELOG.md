@@ -2,6 +2,7 @@
 
 ## 1.0.7 / YYYY-MM-DD
 
+* Reformat `NOTICE.txt`
 * Add `release`-profile
 * Add `maven-source-plugin`
 * Add `maven-gpg-plugin`
